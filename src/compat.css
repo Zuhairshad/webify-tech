@@ -1,0 +1,90 @@
+/* ==============================
+   Typography
+   ============================== */
+   .heading-display-1 { @apply text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight; }
+   .label-caption { @apply text-xs sm:text-sm leading-5; }
+   .content-para { @apply text-base leading-7 text-white/85; }
+   .content-para.home-hero { @apply text-white/90; }
+   .content-para.home-hero-secondary { @apply text-white/70; }
+   
+   /* ==============================
+      Pills / captions
+      ============================== */
+   .caption-w.caption-dark-bg { @apply px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur; }
+   
+   /* ==============================
+      Buttons
+      ============================== */
+   .button { @apply inline-flex items-center gap-2 rounded-xl transition; }
+   .button-primary { @apply bg-white text-black font-semibold px-5 py-3 hover:opacity-90; }
+   .button-dark-ghost { @apply border border-white/20 text-white px-5 py-3 hover:bg-white/10; }
+   .button .icon { @apply h-4 w-4; }
+   .button-label-w.small { @apply text-sm; }
+   .button-label-w.is_primary { @apply font-semibold; }
+   
+   /* ==============================
+      Hero images and fader
+      ============================== */
+   ._0301-image { @apply w-full h-full object-cover; }
+   .image-home-hero-image.hide-mobile-landscape { @apply hidden sm:block; }
+   .home-hero-image.show-mobile-landscape { @apply block sm:hidden; }
+   ._0301-s-background-w { @apply absolute inset-0; }
+   ._0301-s-background-fader.rem-hero-fader { @apply absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70; }
+   
+   /* ==============================
+      Layout wrappers
+      ============================== */
+   .page-hero-w { @apply relative overflow-hidden; }
+   .s-wrapper.sw-page-header { @apply container mx-auto px-4; }
+   ._0301-page-hero-main { @apply grid lg:grid-cols-12 gap-10 relative z-10 py-16 sm:py-24; }
+   ._0301-page-hero-block { @apply space-y-6 lg:col-span-7; }
+   ._0301-page-hero-block.hide-mobile-landscape { @apply hidden md:block lg:col-span-5 space-y-4; }
+   .max-width---480px { @apply max-w-[480px]; }
+   ._0301-page-hero-line { @apply h-px w-full max-w-md bg-white/15; }
+   
+   /* ==============================
+      CTAs wrapper
+      ============================== */
+   .cta-w { @apply flex flex-wrap gap-3; }
+   
+   /* ==============================
+      Services tags row
+      ============================== */
+   .services-bento-tag-w { @apply flex flex-wrap gap-2; }
+   
+   /* ==============================
+      Global page background overrides
+      ============================== */
+   :root { --page-bg: #000; }
+   
+   html, body, #__next, #root {
+     background: var(--page-bg) !important;
+     color: #fff;
+     margin: 0;
+     padding: 0;
+   }
+   
+   /* Common wrappers — transparent so hero shows through */
+   .page-hero-w,
+   .sw-page-header,
+   .s-wrapper,
+   main,
+   .page {
+     background: transparent !important;
+   }
+   
+   /* Kill unwanted overlays that might cause color */
+   header::before,
+   .page-hero-w::before {
+     background: transparent !important;
+   }
+   
+   /* Extra safety if some component sets body again later */
+   body { background: #000 !important; }
+   
+   @keyframes marquee {
+      0%   { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee { animation: marquee var(--speed) linear infinite; }
+    
