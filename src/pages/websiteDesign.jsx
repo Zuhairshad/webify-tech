@@ -9,6 +9,8 @@ import Insights from "../components/Insights";
 import FooterIntro from "../components/FooterIntro";
 import TestimonialsSection from "../components/TestimonialsSection";
 import ContactFormFormspree from '../components/ContactSection';
+import HeroSection from '../components/serviceHero';
+import AwardSec from '../components/serviceAwardSec';
 <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet"></link>
 
 const WebDesign = () => {
@@ -524,222 +526,28 @@ const services = [
   };
     return (
         <>
-        <section className="relative z-10 text-[#f2f5f7] h-screen pb-16 overflow-hidden w-full px-4 md:px-12 py-28">
-            {/* Background Image and Overlay */}
-            <div className="absolute inset-0">
-                <img
-                    src="https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/66a921b2523b4292beddc3e5_Section.jpg"
-                    alt="Background"
-                    className="w-full h-full object-cover object-center sm:object-top md:object-center 
-                     transform-gpu"
-                />
-                {/* Mobile: Strong black gradient from bottom to transparent top */}
-                {/* Desktop: Light gradient at bottom */}
-                <div className="absolute bottom-0 left-0 right-0 h-3/4 sm:h-40 
-                bg-gradient-to-t from-black via-black/80 to-transparent 
-                sm:from-black/70 sm:via-transparent sm:to-transparent"></div>
-            </div>
+        <HeroSection
+        backgroundImage="https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/66a921b2523b4292beddc3e5_Section.jpg"
+        subtitle="Brand Vision | Web Design Services"
+        title="Award-Winning Web Design Agency"
+        description="Brand Vision is a leading media and web design agency with extensive experience in crafting custom-designed and expertly developed websites. Our creative team takes pride in producing visually striking, user-friendly platforms that excel in both user experience and SEO."
+        marqueeText="Award Winning Website Design & Development Agency"
+        showScrollIndicator={true}
+      />
 
-            {/* Content Wrapper - Hidden on mobile, visible on desktop */}
-            <div className="relative z-20 max-w-6xl mx-auto h-full hidden md:flex flex-col justify-center md:flex-row md:items-center">
-                {/* Left Side Content - Text Block */}
-                <div className="flex-1 mt-40 md:mt-2 md:max-w-xl">
-                    <h2 className="text-lg sm:text-base md:text-lg font-bold">Brand Vision | Web Design Services</h2>
-                    <div className="h-0.5 w-1/2 bg-gray-200 my-4"></div>
-                    <div>
-                        <h1 className="text-base sm:text-lg md:text-xl font-semibold">Award-Winning Web Design Agency</h1>
-                    </div>
-                    <div className="mt-4">
-                        <p className="text-sm sm:text-base md:text-md leading-relaxed">
-                            Brand Vision is a leading media and web design agency with extensive
-                            experience in crafting custom-designed and expertly developed
-                            websites. Our creative team takes pride in producing visually
-                            striking, user-friendly platforms that excel in both user experience
-                            and SEO.
-                        </p>
-                    </div>
-                </div>
 
-                {/* Right Side Content - Scroll Div - Hidden on mobile */}
-                <div className="flex-1 flex justify-end items-end p-8 mt-8 md:mt-0">
-                    <div className="text-xs tracking-widest origin-right border rounded-2xl p-1">
-                        Scroll to explore
-                    </div>
-                </div>
-            </div>
-
-            {/* Mobile Content - Positioned at bottom over black gradient */}
-            <div className="relative z-20 max-w-6xl mx-auto h-full flex md:hidden flex-col justify-end pb-32">
-                <div className="px-2">
-                    <h2 className="text-sm font-bold mb-2">Brand Vision | Web Design Services</h2>
-                    <div className="h-0.5 w-full bg-gray-500 my-3"></div>
-                    <div>
-                        <h1 className="text-lg font-semibold mb-3">Award-Winning Web Design Agency</h1>
-                    </div>
-                    <div>
-                        <p className="text-sm leading-relaxed">
-                            Brand Vision is a leading media and web design agency with extensive
-                            experience in crafting custom-designed and expertly developed
-                            websites. Our creative team takes pride in producing visually
-                            striking, user-friendly platforms that excel in both user experience
-                            and SEO.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            {/* Background Text Animation */}
-            <style>
-                {`
-                @keyframes marquee {
-                    0% { transform: translateX(0%); }
-                    100% { transform: translateX(-100%); }
-                }
-
-                .marquee-container {
-                    display: flex;
-                    animation: marquee 10s linear infinite;
-                    white-space: nowrap;
-                }
-
-                .marquee-item {
-                    flex-shrink: 0;
-                    padding-right: 4rem;
-                }
-
-                .text-hollow {
-                    font-family: 'Prata', serif; /* Apply Prata font */
-                    font-weight: 400;
-                    color: transparent;
-                    -webkit-text-stroke: 1px #ffffff;
-                    text-stroke: 1px #ffffff;
-                }
-
-                @media (min-width: 640px) {
-                    .text-hollow {
-                        -webkit-text-stroke: 2px #ffffff;
-                        text-stroke: 2px #ffffff;
-                    }
-                    .marquee-item {
-                        padding-right: 6rem;
-                    }
-                }
-
-                @media (min-width: 768px) {
-                    .marquee-item {
-                        padding-right: 8rem;
-                    }
-                }
-                `}
-            </style>
-            
-            {/* Marquee text - hidden on mobile, visible on desktop */}
-            <div className="absolute bottom-6 sm:bottom-8 md:bottom-18 left-0 right-0 overflow-hidden text-6xl md:text-8xl lg:text-8xl font-extrabold ">
-                <div className="marquee-container">
-                    <div className="marquee-item">
-                        <span className="text-hollow">Award Winning Website Design & Development Agency</span>
-                    </div>
-                    <div className="marquee-item">
-                        <span className="text-hollow">Award Winning Website Design & Development Agency</span>
-                    </div>
-                    <div className="marquee-item">
-                        <span className="text-hollow">Award Winning Website Design & Development Agency</span>
-                    </div>
-                    <div className="marquee-item">
-                        <span className="text-hollow">Award Winning Website Design & Development Agency</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section className="w-full bg-[#070d13] font-Inter text-[#f2f5f7] px-12 py-28">
-      <div className="max-w-7xl mx-auto">
-        {/* Title Section */}
-        <div className="text-center space-y-6">
-          <div>
-            <p className="text-lg font-semibold text-white">
-              
-              <a
-                href="/"
-                className="text-sm"
-              >
-                Top Web Design Agency
-              </a>
-            </p>
-          </div>
-
-          <h5 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-snug">
-            We create beautiful websites{" "}
-            <span className="block text-[#f2f5f7]/90">
-              that drive business growth.
-            </span>
-          </h5>
-
-          <div className="max-w-3xl mx-auto">
-            <p className="text-base text-white leading-relaxed">
-              Brand Vision is a leading media and web design agency with
+      <AwardSec 
+      topText="Top Web Design Agency"
+      heading="We create beautiful websites"
+      subHeading="that drive business growth."
+      description="Brand Vision is a leading media and web design agency with
               extensive experience in crafting custom-designed and expertly
               developed websites. Our creative team takes pride in producing
               visually striking, user-friendly platforms that excel in both user
-              experience and SEO.
-            </p>
-          </div>
-        </div>
+              experience and SEO." />
 
-        {/* Separator */}
-        <div className="my-8 h-[1px] bg-white/20"></div>
 
-        {/* Awards Section */}
-        <div className="flex flex-wrap justify-center gap-8">
-          <a
-            href="https://www.awwwards.com/brandvision/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src="https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/661d47db67d58ced2f661103_Awwwards%20Logo.svg"
-              alt="Awwwards Logo"
-              className="h-10 object-contain"
-            />
-          </a>
-          <a
-            href="https://clutch.co/profile/brand-vision-1#reviews"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src="https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/661d47dcfa8d01daa6b85a7a_Clutch%20Logo.svg"
-              alt="Clutch Logo"
-              className="h-10 object-contain"
-            />
-          </a>
-          <a href="https://g.co/kgs/qXiLS2M" target="_blank" rel="noreferrer">
-            <img
-              src="https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/661d47dc8bd93e0c3ceb94df_Generic%20Award.svg"
-              alt="Generic Award Logo"
-              className="h-10 object-contain"
-            />
-          </a>
-          <a href="https://g.co/kgs/qXiLS2M" target="_blank" rel="noreferrer">
-            <img
-              src="https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/661d47db1a93a19ceda6299b_Google%20Reviews%20Logo.svg"
-              alt="Google Reviews Logo"
-              className="h-10 object-contain"
-            />
-          </a>
-          <a
-            href="https://upcity.com/profiles/brand-vision-marketing"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src="https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/661d47db73a1d5d1c49ab6c5_Upcity%20Logo.svg"
-              alt="Upcity Logo"
-              className="h-10 object-contain"
-            />
-          </a>
-        </div>
-      </div>
-    </section>
+        
     <section className="w-full bg-white border-b border-[#070d130f] py-2 px-2 ">
       <div className="mx-5 flex flex-col md:flex-row justify-between items-center ">
         {/* Caption */}
@@ -922,7 +730,7 @@ const services = [
                 onMouseEnter={() => setHoveredItem(item.id)}
                 onMouseLeave={() => setHoveredItem(null)}
               >
-                <div className=" grid grid-cols-1 md:grid-cols-2 border-b border-gray-700/50 pb-8">
+                <div className=" grid grid-cols-1 space-x-6  md:grid-cols-2 border-b border-gray-700/50 pb-8">
                   <div className="text-2xl md:text-3xl font-semibold mb-4 leading-tight">
                     {item.title}{" "}
                     <span>{item.highlight}</span>

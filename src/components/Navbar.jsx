@@ -171,11 +171,11 @@ export default function Navbar() {
 >
   <ul className="py-2">
     {[
-      { label: "Web Design", to: "/services/web-design", external: false },
+      { label: "App Dev", to: "/services/app-development", external: false },
       { label: "Web Dev", to: "/services/web-development", external: false },
       { label: "SEO", to: "https://seo.brandvm.com/", external: true },
-      { label: "Branding", to: "/services/branding", external: false },
-      { label: "Graphic Design", to: "/services/graphic-design", external: false },
+      { label: "digital marketing", to: "/services/digital-marketing", external: false },
+      { label: "UIUX", to: "/services/UIUX", external: false },
     ].map(({ label, to, external }) => (
       <li key={label}>
         {external ? (
