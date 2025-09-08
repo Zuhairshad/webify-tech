@@ -149,7 +149,7 @@ export default function ServicesSection() {
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 py-16">
         <h2 className="text-center text-5xl font-bold mb-12 text-slate-900">
-          Brand Vision Creative Services
+          Webify Tech Creative Services
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-14">
