@@ -1,29 +1,23 @@
-import { useEffect, useState } from 'react'
-import Navbar from './components/Navbar.jsx'
-import Hero from './components/Hero.jsx'
-import Services from './components/Services.jsx'
-import RecentClients from './components/RecentClients.jsx'
-import FeaturedWork from './components/FeaturedWork.jsx'
-import IndustriesSection from './components/IndustriesSection.jsx'
-import FaqsSection from './components/FaqsSection.jsx'
-import Insights from './components/Insights.jsx'
-
-
+// src/App.jsx
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import AboutUs from "./pages/AboutUs.jsx";
+import Work from "./pages/Work.jsx"
+import CaseStudy from "./pages/CaseStudy.jsx";
+import Contact from "./pages/Contact.jsx"
+import RequestProposal from "./pages/RequestProposal.jsx";
 export default function App() {
   return (
-    <div className='bg-white'>
-      <Navbar />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<AboutUs />} />
+      <Route path="/work" element={<Work />} />
+        <Route path="/work/:id" element={<CaseStudy />} />
+        <Route path="/contact" element={<Contact/>} />
+        <Route path="/proposalrequest" element={<RequestProposal/>} />
 
-      <main className="container-x space-y-16 pb-2 bg-white !pt-0">{/* add bg */}
-        <Hero/>
-        <Services />
-        <RecentClients />
-        <FeaturedWork />
-        <IndustriesSection />
-        <FaqsSection/>
-        <Insights/>
-      </main>
-    </div>
+
+      {/* add more routes here */}
+    </Routes>
   );
 }
-

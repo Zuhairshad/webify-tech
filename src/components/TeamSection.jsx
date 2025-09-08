@@ -1,0 +1,148 @@
+// src/components/TeamSection.jsx
+import React from "react";
+
+/**
+ * Meet Our Team — React + Tailwind
+ * - Spaced title block
+ * - Grid starts slightly below the title
+ * - Hover ONLY on the bio paragraph
+ * - Custom names/roles + Unsplash avatars
+ */
+
+const TEAM = [
+  {
+    name: "Amina Rahman",
+    role: "Operations Director",
+    bio: "Drives cross-functional delivery from kickoff to launch, with a decade of experience in marketing ops and quality assurance.",
+    img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    name: "Hamza Ali",
+    role: "Creative Director",
+    bio: "Leads brand systems and digital campaigns. Loves blending strategy, motion, and web to craft memorable experiences.",
+    img: "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    name: "Nathalie Cruz",
+    role: "Market Research Analyst",
+    bio: "Turns messy datasets into crisp insights. Special focus on category trends, audience segments, and pricing signals.",
+    img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    name: "Jay Chen",
+    role: "Full-Stack Developer",
+    bio: "Builds fast, resilient web apps. Partners closely with design to ship pixel-perfect UI with rock-solid foundations.",
+    img: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    name: "Yasmin Farouk",
+    role: "Lead Brand Strategist",
+    bio: "Shapes positioning and messaging that stick. Obsessed with distinctiveness and long-term brand value.",
+    img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    name: "Kajal Arora",
+    role: "Project Specialist",
+    bio: "Keeps roadmaps clear and teams unblocked. Known for proactive risk flags and smooth stakeholder comms.",
+    img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    name: "Shahab Tariq",
+    role: "Sales Specialist",
+    bio: "Builds win-win relationships and converts complex solutions into clear value for clients.",
+    img: "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    name: "Aseem Shaikh",
+    role: "Lead UX/UI Specialist",
+    bio: "Designs inclusive, research-backed interfaces. Loves simplifying flows and raising usability benchmarks.",
+    img: "https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    name: "Kevin Lee",
+    role: "Lead UX Engineer",
+    bio: "Bridges design and engineering to ship delightful, accessible interactions at scale.",
+    img: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?q=80&w=800&auto=format&fit=crop",
+  },
+];
+
+export default function TeamSection() {
+  return (
+    <section id="team" className="section-old py-10 s-about-our-team">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* ---- Title block (extra breathing room) ---- */}
+        <div className="pt-10 md:pt-12">
+          <div className="text-sm font-semibold text-slate-500 mb-2">Our Team</div>
+
+          <div className="max-w-3xl">
+            <h2 className="text-4xl/tight md:text-5xl/tight font-extrabold tracking-tight text-slate-900">
+              Meet Our <span className="text-sky-600">Senior Team</span>
+            </h2>
+            <p className="mt-5 text-slate-600 leading-7">
+              We create great things by surrounding ourselves with great people. Our team blends
+              design, engineering, and research to ship work we’re proud of—every day.
+            </p>
+          </div>
+        </div>
+
+        {/* ---- Subtle offset so grid starts a little lower than title ---- */}
+        <div className="mt-10 md:mt-12">
+          <ul
+            className="
+              grid gap-5 sm:gap-6 lg:gap-8
+              grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+            "
+            role="list"
+          >
+            {TEAM.map((m, i) => (
+              <li key={i} className="h-full">
+                <article
+                  className="
+                    h-full rounded-2xl border border-slate-200 bg-white
+                    shadow-sm hover:shadow-md transition-shadow
+                    overflow-hidden
+                  "
+                >
+                  {/* Avatar */}
+                  <div className="aspect-[16/9] overflow-hidden">
+                    <img
+                      src={m.img}
+                      alt={`${m.name} headshot`}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  {/* Info */}
+                  <div className="p-5 sm:p-6">
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h3 className="text-lg font-semibold text-slate-900">{m.name}</h3>
+                      <span className="text-xs font-medium uppercase tracking-wide text-slate-500">
+                        {m.role}
+                      </span>
+                    </div>
+
+                    <div className="my-3 h-px bg-slate-200" />
+
+                    {/* Bio (hover effect ONLY here) */}
+                    <p
+                      className="
+                        text-slate-600 leading-6 rounded-md
+                        transition-colors duration-200
+                        hover:bg-sky-50 hover:text-sky-800
+                        p-2 -m-2
+                      "
+                      title="Hover highlights only the bio"
+                    >
+                      {m.bio}
+                    </p>
+                  </div>
+                </article>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}

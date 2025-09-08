@@ -3,57 +3,57 @@ import { Fragment } from "react";
 
 const items = [
   {
+    id: "safeway-b2b-portal",
     tagPrimary: "Website",
     tagSecondary: "Branding",
     title: "Safeway (Albertsons)",
-    blurb:
-      "Website Redesign & B2B Customer Experience for a National Grocery Brand",
-    image:
-      "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=2400&auto=format&fit=crop",
-    caseHref: "#",
-    liveHref: "#",
+    blurb: "Website Redesign & B2B Customer Experience for a National Grocery Brand",
+    image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=2400&auto=format&fit=crop",
+    caseHref: "/work/safeway-b2b-portal",
   },
   {
+    id: "mostardi-platt",
     tagPrimary: "Website",
     tagSecondary: "Branding",
     title: "Mostardi Platt",
-    blurb:
-      "Website Design & Brand Refresh for an Environmental Consultancy",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2400&auto=format&fit=crop",
-    caseHref: "#",
-    liveHref: "#",
+    blurb: "Website Design & Brand Refresh for an Environmental Consultancy",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2400&auto=format&fit=crop",
+    caseHref: "/work/mostardi-platt",
   },
   {
+    id: "arcelormittal",
     tagPrimary: "Website",
     title: "ArcelorMittal",
-    blurb:
-      "Website Design for the World’s Leading Steel Manufacturer",
-    // 🔧 fixed image (previous link intermittently fails)
-    image:
-      "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8S1V6ZDl5RUZUQXN8ZW58MHx8MHx8&auto=format&fit=crop&w=2400&q=80",
-    caseHref: "#",
-    liveHref: "#",
+    blurb: "Website Design for the World’s Leading Steel Manufacturer",
+    image: "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?q=80&w=2400&auto=format&fit=crop",
+    caseHref: "/work/arcelormittal",
   },
   {
+    id: "flipp",
     tagPrimary: "Website",
     title: "Flipp",
     blurb: "Web Design and Development for a Professional Business",
-    image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2400&auto=format&fit=crop",
-    caseHref: "#",
-    liveHref: "#",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2400&auto=format&fit=crop",
+    caseHref: "/work/flipp",
   },
   {
+    id: "2992-sheppard",
     tagSecondary: "Branding",
     title: "2992 Sheppard",
     blurb: "Branding for Real Estate Project",
-    image:
-      "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=2400&auto=format&fit=crop",
-    caseHref: "#",
-    liveHref: null,
+    image: "https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=2400&auto=format&fit=crop",
+    caseHref: "/work/2992-sheppard",
+  },
+  {
+    id: "brandvision",
+    tagSecondary: "Branding",
+    title: "Brand Vision",
+    blurb: "Brand identity and campaign design for a creative agency",
+    image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=2400&auto=format&fit=crop",
+    caseHref: "/work/brandvision",
   },
 ];
+
 
 export default function FeaturedWork() {
   const stickyTop = "calc(var(--nav-h, 80px) + 16px)";
