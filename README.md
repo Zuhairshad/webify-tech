@@ -60,8 +60,6 @@ webify-tech-portfolio/
 ├── package.json
 └── tailwind.config.js
 
-yaml
-Copy code
 
 ---
 
