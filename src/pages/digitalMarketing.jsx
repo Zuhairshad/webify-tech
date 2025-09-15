@@ -15,18 +15,17 @@ const DigitalMarketing = () => {
     return (
         <>
         <HeroSection
-        backgroundImage="https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/66902d6a82f764d538006ea7_Branding%20Hero.avif"
-        subtitle="Results-Driven Digital Marketing Agency"
-        title="Strategy | Campaigns | Growth"
-        description="Brand Vision is a performance-focused digital marketing agency that creates data-driven campaigns to accelerate your business growth and maximize ROI across all digital channels."
-        marqueeText="Results-Driven Digital Marketing Agency"
-        showScrollIndicator={true} />
+  backgroundImage="/15.png"
+  marqueeText="DIGITAL MARKETING"
+  textColor="white"
+/>
+
 
         <AwardSec 
         topText="Leading Digital Marketing Agency"
         heading="We Drive Digital Growth That Delivers"
         subHeading="— Measurable Results Every Time"
-        description="Success in digital marketing is measured by performance, not promises. Brand Vision creates comprehensive digital strategies that drive qualified traffic, generate quality leads, and convert prospects into loyal customers.
+        description="Success in digital marketing is measured by performance, not promises. Webfiy Tech creates comprehensive digital strategies that drive qualified traffic, generate quality leads, and convert prospects into loyal customers.
         Our data-driven approach combines cutting-edge technology with proven methodologies to deliver campaigns that perform. From SEO and PPC to social media and content marketing, every tactic is strategically aligned to achieve your business objectives and deliver measurable ROI.
         Your digital success depends on reaching the right audience at the right moment—our expertise ensures your message cuts through the noise and drives action."
         />
@@ -52,7 +51,7 @@ const DigitalMarketing = () => {
             title: "Multi-Channel Campaigns",
             eyebrow: "Your digital presence spans multiple platforms",
             description:
-                "At Brand Vision, we orchestrate integrated campaigns across all digital touchpoints. From search engine marketing and social media advertising to email campaigns and content marketing, we ensure consistent messaging and optimal performance across every channel your customers use.",
+                "At Webfiy Tech, we orchestrate integrated campaigns across all digital touchpoints. From search engine marketing and social media advertising to email campaigns and content marketing, we ensure consistent messaging and optimal performance across every channel your customers use.",
             tags: [
                 "Search Engine Marketing",
                 "Social Media Advertising",

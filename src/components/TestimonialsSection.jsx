@@ -21,7 +21,7 @@ function StaticCompanyCard() {
         <div className="h-full rounded-2xl border border-slate-200 bg-white p-6 md:p-7 shadow-sm">
             <div className="flex flex-col gap-5">
                 <img
-                    src="TesSecImg.jpg"
+                    src="/TesSecImg.jpg"
                     alt="Webify Tech office"
                     className="h-32 w-full object-cover rounded-xl"
                 />

@@ -47,7 +47,7 @@ const items = [
   {
     id: "brandvision",
     tagSecondary: "Branding",
-    title: "Brand Vision",
+    title: "Webfiy Tech",
     blurb: "Brand identity and campaign design for a creative agency",
     image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=2400&auto=format&fit=crop",
     caseHref: "/work/brandvision",

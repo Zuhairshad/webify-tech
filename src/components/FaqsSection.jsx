@@ -4,177 +4,178 @@ import { useMemo, useState } from "react";
 const TABS = ["All", "Website", "Branding"];
 
 const faqs = [
-    // --- All (shared) ---
-    {
-      q: "Why choose Webify Tech?",
-      a: `At Webify Tech, creativity and transparency aren't just words—they're the pillars of everything we do. As a top web design and branding agency, we select projects where we can add maximum value and leverage our experience. We've received awards from Clutch, Awwwards, UpCity, DAN and more, and maintain consistent 5-star ratings across platforms.`,
-      cat: "All",
-    },
-    {
-      q: "What services do you offer?",
-      a: `Web Design & Development, Branding (research/strategy + visual identity), Marketing Consultation/Audit, SEO, plus content marketing and graphic design.`,
-      cat: "All",
-    },
-    {
-      q: "How long will a web design project take?",
-      a: `Web projects typically range from ~4 to 12+ weeks depending on scope. Branding projects ~4–8 weeks. Consultation/audits ~2–4 weeks. Ongoing SEO is monthly.`,
-      cat: "All",
-    },
-    {
-      q: "How big is your team?",
-      a: `15+ senior specialists: Creative Director, PMs, Designers/Devs, UX/UI, Full-Stack, Branding & Content Strategists.`,
-      cat: "All",
-    },
-    {
-      q: "Do you offer copywriting services?",
-      a: `Yes. Our content strategists and copywriters create SEO-friendly, on-brand content across pages, blogs, and campaigns.`,
-      cat: "All",
-    },
-    {
-      q: "What is typically included in a standard branding package?",
-      a: `Two pillars: (1) Research & Strategy (market, audience, positioning), (2) Visual Identity (logo, colors, type, system & guidelines).`,
-      cat: "All",
-    },
-    {
-      q: "Do you offer marketing audit & consultation service?",
-      a: `Yes. We review website, branding, SEO, social and assets, then deliver a prioritized improvement roadmap with impact & effort estimates.`,
-      cat: "All",
-    },
-    {
-      q: "Do you offer SEO services?",
-      a: `Yes—ongoing SEO (on-page + off-page) including content, technical optimization and link building. Packages can be tailored.`,
-      cat: "All",
-    },
-    {
-      q: "What clientele or industries do you work with?",
-      a: `SMB to enterprise across professional services, real estate, technology, startups, and non-profits in North America and beyond.`,
-      cat: "All",
-    },
-    {
-      q: "Do you offer maintenance services?",
-      a: `Yes—hourly on-demand or monthly maintenance plans for updates, fixes, and optimization.`,
-      cat: "All",
-    },
-  
-    // --- Website tab specifics ---
-    {
-      q: "Can you upgrade my current site?",
-      a: `Yes. We frequently handle redesigns and upgrades across most platforms.`,
-      cat: "Website",
-    },
-    {
-      q: "Do you create Wix websites?",
-      a: `Yes—we’re experienced with Wix and can design premium, performant sites on the platform.`,
-      cat: "Website",
-    },
-    {
-      q: "Do you create WordPress websites?",
-      a: `Yes—custom WordPress builds and theme work are both supported.`,
-      cat: "Website",
-    },
-    {
-      q: "Can I update and manage my own website myself?",
-      a: `We recommend editable platforms when needed and provide handover training so your team can make routine edits confidently.`,
-      cat: "Website",
-    },
-    {
-      q: "Do you offer mobile-friendly web design services?",
-      a: `All builds are responsive with dedicated mobile layouts for a great small-screen UX.`,
-      cat: "Website",
-    },
-    {
-      q: "Is Search Engine Optimization included?",
-      a: `On-page SEO fundamentals are included in our web design & development packages.`,
-      cat: "Website",
-    },
-    {
-      q: "Can you provide images for my projects?",
-      a: `We source high-quality licensed stock when needed (photography services not included).`,
-      cat: "Website",
-    },
-    {
-      q: "What countries do you accept projects from?",
-      a: `We operate internationally; most clients are in North America.`,
-      cat: "Website",
-    },
-    {
-      q: "Who will be working on my project?",
-      a: `A management duo (Creative Director + PM) leads the team; specialists join per scope (UX, Dev, Branding, Content).`,
-      cat: "Website",
-    },
-    {
-      q: "What is Wireframing?",
-      a: `A low-fidelity architecture of pages and layout flows to align on structure before visual design—reduces revisions and speeds delivery.`,
-      cat: "Website",
-    },
-    {
-      q: "What is Site Mapping?",
-      a: `The information architecture plan (pages, sub-pages, URLs, nav labels) to create logical navigation and support SEO.`,
-      cat: "Website",
-    },
-    {
-      q: "Do you work with WordPress themes?",
-      a: `We can, but we prioritize custom experiences tailored to your goals and audience.`,
-      cat: "Website",
-    },
-    {
-      q: "Are you an authorized web design agency?",
-      a: `Yes—an experienced, award-winning team of designers and PMs.`,
-      cat: "Website",
-    },
-    {
-      q: "Is there a limit to how many pages my website can have?",
-      a: `No hard limit; page count impacts scope and cost. We help right-size content and structure.`,
-      cat: "Website",
-    },
-    {
-      q: "What if I don’t know how to operate WordPress? Do you provide instructions?",
-      a: `Yes—training sessions and guides are provided at handover.`,
-      cat: "Website",
-    },
-    {
-      q: "Do I own the website that you create?",
-      a: `Yes. After final approval we transfer files, licenses, and access.`,
-      cat: "Website",
-    },
-    {
-      q: "What platforms do you specialize in?",
-      a: `WordPress, Webflow, Wix, Squarespace—and custom stacks as needed.`,
-      cat: "Website",
-    },
-    {
-      q: "What CRM platforms do you work with?",
-      a: `Typical integrations include HubSpot, Pardot, Salesforce, Marketo, and more.`,
-      cat: "Website",
-    },
-  
-    // --- Branding tab specifics ---
-    {
-      q: "What is Brand Positioning?",
-      a: `How your brand is perceived vs. competitors—owning a unique space in the audience’s mind.`,
-      cat: "Branding",
-    },
-    {
-      q: "What is Brand Identity?",
-      a: `Your visual + verbal system: logo, color, type, voice, messaging, and design language.`,
-      cat: "Branding",
-    },
-    {
-      q: "What is Brand Persona?",
-      a: `A fictional character embodying your brand’s traits—guides voice, tone, and creative decisions.`,
-      cat: "Branding",
-    },
-    {
-      q: "What is Brand Voice and Tone?",
-      a: `Voice = personality; Tone = emotion per context. Consistency builds recognition and trust.`,
-      cat: "Branding",
-    },
-    {
-      q: "Why is Brand Research a crucial step in Branding?",
-      a: `It aligns strategy with audience needs, maps competitors, and clarifies positioning to drive differentiated creative.`,
-      cat: "Branding",
-    },
-  ];
+  // --- All (shared) ---
+  {
+    q: "Why partner with Webify?",
+    a: `We lead with clarity, craft, and honest process. We take on work where our experience makes a visible difference—then deliver it with tight communication and measurable outcomes. Our team’s work is consistently top-rated across industry platforms.`,
+    cat: "All",
+  },
+  {
+    q: "Which services do you provide?",
+    a: `End-to-end Web Design & Development, Brand Strategy and Visual Identity, SEO, audits and consulting, content support, and graphic design for campaigns and social.`,
+    cat: "All",
+  },
+  {
+    q: "What timelines should I expect?",
+    a: `Typical website builds land in the ~4–12 week window depending on scope and integrations. Branding programs are ~4–8 weeks. Audits/consulting run ~2–4 weeks. SEO operates on a monthly cadence.`,
+    cat: "All",
+  },
+  {
+    q: "How large is the team?",
+    a: `A multidisciplinary group of 15+ senior specialists: creative direction, project management, UX/UI, full-stack development, brand strategy, and content.`,
+    cat: "All",
+  },
+  {
+    q: "Do you handle copy/content?",
+    a: `Yes. Our content and SEO team creates on-brand, search-friendly copy for pages, landing funnels, and blogs as needed.`,
+    cat: "All",
+  },
+  {
+    q: "What’s inside a branding package?",
+    a: `Two tracks: (1) Strategy—research, positioning, messaging; (2) Identity—logo system, color, typography, visual language, and brand guidelines.`,
+    cat: "All",
+  },
+  {
+    q: "Can you audit our marketing or website?",
+    a: `Absolutely. We review brand, site UX, analytics, SEO and channels, then deliver a prioritized roadmap with effort vs. impact.`,
+    cat: "All",
+  },
+  {
+    q: "Do you offer SEO?",
+    a: `Yes—technical and on-page foundations, content planning, and authority building. We tailor retainers to your goals and timeline.`,
+    cat: "All",
+  },
+  {
+    q: "Who do you usually work with?",
+    a: `Startups to enterprise across tech, professional services, real estate, and nonprofits—primarily North America with international clients as well.`,
+    cat: "All",
+  },
+  {
+    q: "Do you provide ongoing maintenance?",
+    a: `Yes—monthly plans or ad-hoc support for updates, fixes, and optimizations.`,
+    cat: "All",
+  },
+
+  // --- Website tab specifics ---
+  {
+    q: "Can you refresh or upgrade my current site?",
+    a: `Yes. We routinely redesign and modernize existing websites, preserving what works and improving speed, UX, and conversions.`,
+    cat: "Website",
+  },
+  {
+    q: "Do you build on Wix?",
+    a: `We do. We design premium, performant sites on Wix when it’s the right fit for your team and content workflow.`,
+    cat: "Website",
+  },
+  {
+    q: "Do you build on WordPress?",
+    a: `Yes—custom themes and component systems, as well as headless WordPress when needed.`,
+    cat: "Website",
+  },
+  {
+    q: "Will I be able to edit the site myself?",
+    a: `We recommend editable CMS setups and include handover sessions so your team can confidently manage routine updates.`,
+    cat: "Website",
+  },
+  {
+    q: "Are your sites mobile-friendly?",
+    a: `Every build is responsive by design with tailored mobile layouts for speed and readability.`,
+    cat: "Website",
+  },
+  {
+    q: "Is SEO included with web projects?",
+    a: `Core on-page SEO (structure, metadata, performance) is included. Ongoing content and link strategy can be added as a retainer.`,
+    cat: "Website",
+  },
+  {
+    q: "Can you handle imagery and assets?",
+    a: `We can source licensed stock and create simple graphics. Dedicated photography/video can be arranged on request.`,
+    cat: "Website",
+  },
+  {
+    q: "Do you work internationally?",
+    a: `Yes—we operate remotely and support clients across time zones.`,
+    cat: "Website",
+  },
+  {
+    q: "Who will be on my project?",
+    a: `A core squad led by a PM and Creative Director, with UX, dev, or brand specialists added per scope.`,
+    cat: "Website",
+  },
+  {
+    q: "What is wireframing?",
+    a: `Low-fidelity screens to align structure and flows before design—reducing revisions and accelerating build time.`,
+    cat: "Website",
+  },
+  {
+    q: "What is a sitemap?",
+    a: `A blueprint of pages and URL structure that guides navigation, content planning, and SEO.`,
+    cat: "Website",
+  },
+  {
+    q: "Do you work with pre-made themes?",
+    a: `We can, but we generally favor custom components tuned to your goals, content, and brand system.`,
+    cat: "Website",
+  },
+  {
+    q: "Are you a certified/recognized agency?",
+    a: `We’re an experienced team with a strong track record and public client reviews to match.`,
+    cat: "Website",
+  },
+  {
+    q: "Is there a page limit?",
+    a: `No fixed cap—page count and content depth inform the scope and timeline. We’ll right-size together.`,
+    cat: "Website",
+  },
+  {
+    q: "I’m new to WordPress—do you train?",
+    a: `Yes—live walkthroughs plus quick-reference docs at handover.`,
+    cat: "Website",
+  },
+  {
+    q: "Who owns the finished website?",
+    a: `You do. After sign-off, we transfer access, code, and relevant licenses to your organization.`,
+    cat: "Website",
+  },
+  {
+    q: "Which platforms do you support?",
+    a: `WordPress, Webflow, Wix, Squarespace—and custom stacks when the project calls for it.`,
+    cat: "Website",
+  },
+  {
+    q: "Which CRMs can you integrate?",
+    a: `Common connections include HubSpot, Salesforce, Pardot, and Marketo—plus others via API/Zapier as needed.`,
+    cat: "Website",
+  },
+
+  // --- Branding tab specifics ---
+  {
+    q: "What is brand positioning?",
+    a: `The strategic place your brand occupies in the market and in the customer’s mind—clear differentiation against alternatives.`,
+    cat: "Branding",
+  },
+  {
+    q: "What is brand identity?",
+    a: `Your visual and verbal toolkit: logo system, color, type, voice, messaging, and the rules that keep everything consistent.`,
+    cat: "Branding",
+  },
+  {
+    q: "What is a brand persona?",
+    a: `An archetype that captures your brand’s character—helpful for steering tone, messaging, and creative decisions.`,
+    cat: "Branding",
+  },
+  {
+    q: "Voice vs. tone—what’s the difference?",
+    a: `Voice is your constant personality; tone flexes to the context (e.g., sales page vs. help doc) while staying on-brand.`,
+    cat: "Branding",
+  },
+  {
+    q: "Why invest in brand research?",
+    a: `It grounds creative decisions in evidence—audience insight, competitive mapping, and positioning that drives effective identity work.`,
+    cat: "Branding",
+  },
+];
+
   
 
 function Chevron({ open }) {

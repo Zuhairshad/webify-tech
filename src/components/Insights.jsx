@@ -9,7 +9,7 @@ const ChevronRight = (props) => (
 const ClockIcon = (props) => (
   <svg viewBox="0 0 12 13" fill="none" stroke="currentColor" {...props}>
     <path d="M6 3.5V6.5H8.25" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M10.5 6.5a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0Z" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M10.5 6.5a.5.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0Z" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 const CalendarDays = (props) => (
@@ -22,54 +22,90 @@ const CalendarDays = (props) => (
   </svg>
 );
 
-/* time-ago helper */
+/* ===== helpers ===== */
 function timeAgo(datetime) {
   const parsed = new Date(datetime.replace(" ", "T"));
   if (Number.isNaN(parsed)) return "Invalid date";
   const now = new Date();
   const diff = now - parsed;
   const m = 60 * 1000, h = 60 * m, d = 24 * h;
-  if (diff < m) return `${Math.round(diff / 1000)} sec ago`;
+  if (diff < m) return `${Math.max(1, Math.round(diff / 1000))} sec ago`;
   if (diff < h) return `${Math.round(diff / m)} min ago`;
   if (diff < d) return `${Math.round(diff / h)} hr ago`;
   return `${Math.round(diff / d)} days ago`;
 }
 
-/* demo data */
+/* ====== REWRITTEN BLOG DATA (layout unchanged) ====== */
+
 const latestFeature = {
-  category: "Marketing",
-  readMins: 15,
-  date: "2025-09-05",
-  title: "Gap vs. American Eagle: Which Viral Denim Ad Won 2025?",
+  category: "Tech",
+  readMins: 12,
+  date: "2025-09-08",
+  title: "React Native vs. Flutter in 2025: Hiring, Performance & Total Cost",
   description:
-    "A research-based comparison of Gap’s “Better in Denim” with Katseye and American Eagle’s Sydney Sweeney campaign. Explore ad highlights, tactics, controversies, public reaction, and verified stats on views, impressions, foot traffic, and new customers.",
-  href: "/post/gap-vs-american-eagle-ads-2025",
+    "We benchmark startup-ready stacks for mobile: build speed, native performance, animations, plugin ecosystems, talent availability, and long-term maintenance. Includes a decision matrix and real TCO examples.",
+  href: "/post/react-native-vs-flutter-2025",
   image:
-    "https://cdn.prod.website-files.com/630d4d1c4a462569dd189855/68bb46001106b2f54c7ac7ee_Gap%20Ad_American%20Eagle%20Ad_KATSEYE_Sydney_Sweeney.webp",
+    "https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1600&auto=format&fit=crop",
 };
+
 const trending = [
   {
-    category: "Educational",
-    title: "STUDY #2 — Scarcity, Waitlists & Resale Premiums in Luxury (2019–2025)",
-    href: "/post/study-scarcity-waitlists-resale-premiums-luxury-2019-2025",
-    image:
-      "https://cdn.prod.website-files.com/630d4d1c4a462569dd189855/68b9fdc8fb11f9f847777fef_Scarcity%2C%20waitlists%20and%20resale%20premium%20in%20luxury%20(2019-2025).webp",
-  },
-  {
     category: "Marketing",
-    title: "Social Media Marketing For Small Businesses In 2025: Adoption, ROI, Platforms, And Risks",
-    href: "/post/social-media-marketing-for-small-businesses",
+    title: "2025 Brand Design Trends: From Neobrutalism To Soft Glass — What Actually Converts",
+    href: "/post/2025-brand-design-trends-that-convert",
     image:
-      "https://cdn.prod.website-files.com/630d4d1c4a462569dd189855/68b8a5ad19703e64f5bb61cc_Social%20Media%20Marketing%20For%20Small%20Businesses%20In%202025.webp",
+      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1200&auto=format&fit=crop",
+  },
+  {
+    category: "Tech",
+    title: "Vite + React + Tailwind: A Production Setup Checklist For Fast Sites",
+    href: "/post/vite-react-tailwind-production-checklist",
+    image:
+      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1200&auto=format&fit=crop",
   },
   {
     category: "Educational",
-    title: "Tallest Active Basketball Players 2025: Ranking Biggest Giants",
-    href: "/post/tallest-active-basketball-players-2025",
+    title: "Framer Motion Patterns: 12 Micro-Interactions That Lift Conversion",
+    href: "/post/framer-motion-patterns-landing-pages",
     image:
-      "https://cdn.prod.website-files.com/630d4d1c4a462569dd189855/68b86457b3b087d4c62345d6_Tallest%20Active%20Basketball%20Players%202025.webp",
+      "https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=1200&auto=format&fit=crop",
   },
 ];
+const midGrid = [
+  {
+    category: "Business",
+    mins: 6,
+    date: "2025-09-06",
+    title: "How Agencies Price Web Projects In 2025 (Data From 120 Quotes)",
+    href: "/post/how-agencies-price-web-projects-2025",
+    image:
+      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop", 
+    // 📊 Business meeting / pricing discussion
+  },
+  {
+    category: "Tech",
+    mins: 7,
+    date: "2025-09-05",
+    title: "React Native For Startups: What To Ship In The First 30 Days",
+    href: "/post/react-native-startup-30-day-roadmap",
+    image:
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1600&auto=format&fit=crop", 
+    // 💻 Developer coding on laptop (tech/startup vibe)
+  },
+  {
+    category: "Social Media",
+    mins: 5,
+    date: "2025-09-04",
+    title: "Short-Form Video Playbook: 5 Hooks That Boost 3-Second Retention",
+    href: "/post/short-form-video-hooks-2025",
+    image:
+      "https://images.unsplash.com/photo-1607344645866-009c320b63e0?q=80&w=1600&auto=format&fit=crop", 
+    // 📱 Social media on phone (fits short-form video topic)
+  },
+];
+
+
 const categories = [
   { name: "Breaking News", href: "/insights/breaking-news" },
   { name: "Educational", href: "/insights/educational" },
@@ -82,48 +118,21 @@ const categories = [
   { name: "Business", href: "/insights/business" },
   { name: "Business Directory", href: "/directory" },
 ];
-const midGrid = [
-  {
-    category: "Entertainment",
-    mins: 5,
-    date: "2025-09-02",
-    title: "Most Followed Beauty Influencers (2025): The Top Beauty Creators By Total Followers",
-    href: "/post/most-followed-beauty-influencers-2025",
-    image:
-      "https://cdn.prod.website-files.com/630d4d1c4a462569dd189855/68b746ba8eac5f8bdd4a714e_most%20followed%20beauty%20creators.webp",
-  },
-  {
-    category: "Business",
-    mins: 5,
-    date: "2025-09-02",
-    title: "Richest Shark Tank Investor in 2025",
-    href: "/post/richest-shark-tank-investor",
-    image:
-      "https://cdn.prod.website-files.com/630d4d1c4a462569dd189855/68b742d7fb02ab036a1ae261_Richest%20Shark%20Tank%20Investor%20in%202025.webp",
-  },
-  {
-    category: "Business",
-    mins: 5,
-    date: "2025-09-02",
-    title: "Top 10 Most Followed Person on TikTok August 2025",
-    href: "/post/top-10-most-followed-people-on-tiktok",
-    image:
-      "https://cdn.prod.website-files.com/630d4d1c4a462569dd189855/68b708f717cf445157ce7a15_Top%2010%20Most%20Followed%20Person%20on%20TikTok%20August%202025%20.webp",
-  },
-];
+
 const breaking = [
-  { when: "2025-09-04 17:10", title: "Tesla Opens Robotaxi App to Public, Musk Predicts Driverless Rides by Year-End", href: "/post/tesla-opens-robotaxi-app-public" },
-  { when: "2025-09-04 12:08", title: "Alix Earle Joins ‘Dancing With the Stars’ Season 34 Cast", href: "/post/alix-earle-dancing-with-the-stars" },
-  { when: "2025-09-04 10:53", title: "Giorgio Armani, Legendary Italian Designer, Dies at 91", href: "/post/giorgio-armani-dies-91" },
-  { when: "2025-09-03 14:00", title: "Roku Outpaces Broadcast For Third Straight Month, Nielsen Says", href: "/post/roku-outpaces-broadcast-third-straight-month" },
-  { when: "2025-09-03 12:05", title: "More Listings As Canada’s Fall Housing Market Cooldown Begins", href: "/post/canada-fall-housing-cooldown-more-listings-2025" },
-  { when: "2025-09-03 10:45", title: "Beavis & Butt-Head Return: Season 11 Premieres Tonight On Comedy Central", href: "/post/beavis-and-butt-head-season-11-premiere-tonight" },
-  { when: "2025-09-02 20:00", title: "Doug Ford Dumps Crown Royal In Protest Of Ontario Plant Closure", href: "/post/ford-dumps-crown-royal-ontario-plant-closure" },
-  { when: "2025-09-02 18:05", title: "Saudi Tourism Goes Global With Cristiano Ronaldo In “Unreal Calendar” Push", href: "/post/saudi-tourism-cristiano-ronaldo-global-unreal-calendar" },
-  { when: "2025-09-02 16:30", title: "DKNY Taps Hailey Bieber As Global Face, Launches Fall 2025 Campaign", href: "/post/dkny-hailey-bieber-global-face-fall-2025-campaign" },
-  { when: "2025-09-02 15:48", title: "Vogue Names Chloe Malle as New Editor", href: "/post/vogue-new-editor" },
+  { when: "2025-09-09 18:20", title: "Meta Ships React 19 RC With Actions And Improved Server Components", href: "/post/react-19-rc-actions-server-components" },
+  { when: "2025-09-09 16:45", title: "Vite 6 Beta Focuses On DX: Faster HMR, Better Monorepo Stories", href: "/post/vite-6-beta-dx-hmr-monorepo" },
+  { when: "2025-09-09 12:30", title: "Figma Adds Native Variables To Prototyping For Multi-Theme Systems", href: "/post/figma-variables-prototyping-multitheme" },
+  { when: "2025-09-08 22:10", title: "Expo SDK 52 Brings New Dev Tools And Hermes Improvements", href: "/post/expo-sdk-52-release-notes" },
+  { when: "2025-09-08 15:05", title: "Next.js 15 Rumor Roundup: Partial Prerendering Gets A Usability Pass", href: "/post/nextjs-15-ppr-usability-rumors" },
+  { when: "2025-09-08 10:48", title: "Shopify Drops New B2B APIs For Headless Checkout", href: "/post/shopify-b2b-apis-headless-checkout" },
+  { when: "2025-09-07 19:40", title: "Stripe Releases Analytics Templates For SaaS Dashboards", href: "/post/stripe-analytics-templates-saas" },
+  { when: "2025-09-07 14:05", title: "Tailwind v4 Sneak Peek Shows Design Tokens And Faster JIT", href: "/post/tailwind-v4-sneak-peek" },
+  { when: "2025-09-06 20:25", title: "Apple App Store Policy Update Eases TestFlight External Testing Limits", href: "/post/app-store-testflight-policy-update" },
+  { when: "2025-09-06 09:55", title: "GitHub Actions Adds Matrix Caching For Monorepos", href: "/post/github-actions-matrix-caching" },
 ];
 
+/* ===== component ===== */
 export default function Insights() {
   const scrollerRef = useRef(null);
 
@@ -148,7 +157,7 @@ export default function Insights() {
         <div className="flex items-center justify-between py-8">
           <a href="#" className="flex items-center gap-3">
             <div className="text-xl font-semibold tracking-wide">
-              <span className="opacity-80">Brand Vision</span>{" "}
+              <span className=" text-2xl opacity-80">Webify Tech</span>{" "}
               <span className="italic text-primary">Insights</span>
             </div>
           </a>
@@ -245,7 +254,7 @@ export default function Insights() {
                 Explore All Insights Topic
               </div>
               <div className="grid grid-cols-2 gap-y-2">
-                {categories.map((c, i) => (
+                {(categories ?? []).map((c, i) => (
                   <a
                     key={i}
                     href={c.href}

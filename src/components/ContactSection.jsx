@@ -138,7 +138,7 @@ async function handleSubmit(e) {
           <div className="lg:col-span-7">
             <form
               onSubmit={handleSubmit}
-              className="relative z-[100] overflow-visible rounded-2xl border border-slate-200 bg-white p-6 sm:p-8"
+              className="relative z-[100] overflow-visible bg-white p-6 sm:p-8"
             >
               {/* Honeypot */}
               <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />

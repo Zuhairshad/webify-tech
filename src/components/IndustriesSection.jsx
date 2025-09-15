@@ -78,111 +78,91 @@ function IndustryCard({ title, blurb, more, href }) {
 
 const ITEMS = [
   {
-    title: "Not-For-Profit",
-    blurb: "All NFPs receive 10% discount as a token of our support",
-    more:
-      "We tailor sites and branding for nonprofits, focusing on clear storytelling, donations, and impact—built to scale and easy to manage.",
-    href: "https://www.brandvm.com/industry/not-for-profit-marketing",
-  },
-  {
     title: "Real Estate & Construction",
-    blurb: "Pioneers in real estate web design and marketing",
+    blurb: "Websites and UI/UX that build trust and drive leads",
     more:
-      "Market-ready websites, listings UX, and lead-gen funnels aligned to how buyers search and evaluate properties today.",
-    href: "https://www.brandvm.com/real-estate-marketing",
+      "Custom real estate platforms with clean UI/UX, property search features, and web design optimized for conversions.",
+    href: "/services/UIUX",
   },
   {
     title: "B2B",
-    blurb: "Custom Web Design & Branding for B2B",
+    blurb: "Strategic web development for complex sales cycles",
     more:
-      "Positioning, message architecture, and high-converting sites that shorten complex sales cycles.",
-    href: "https://www.brandvm.com/industry/b2b-marketing",
+      "High-performing websites and applications that shorten long B2B sales cycles with tailored content and seamless development.",
+    href: "/services/web-development",
   },
   {
     title: "E-Commerce",
-    blurb: "Boost your online sales with the perfect website",
+    blurb: "Boost sales with user-focused design and PPC ads",
     more:
-      "Conversion-first storefronts with secure checkout, merchandising, and analytics baked in.",
-    href: "https://www.brandvm.com/industry/e-commerce-marketing",
+      "Conversion-first storefronts supported by strong UI/UX and Google PPC campaigns to drive targeted traffic and maximize ROI.",
+    href: "/services/google-ppc",
   },
   {
     title: "Education",
-    blurb: "Elevating the impact of marketing in educational institutions",
+    blurb: "Accessible web design for schools and programs",
     more:
-      "Accessible, content-rich sites for schools and programs with clear journeys for applicants and parents.",
-    href: "https://www.brandvm.com/industry/education-marketing",
+      "Content-rich educational websites with intuitive UI/UX and responsive design for students, parents, and institutions.",
+    href: "/services/web-development",
   },
   {
     title: "Technology",
-    blurb: "Content audit included with all web design packages",
+    blurb: "Custom development and UX for tech companies",
     more:
-      "Credible, developer-friendly sites for product marketing, docs, and enterprise trust signals.",
-    href: "https://www.brandvm.com/industry/technology-marketing",
+      "Developer-friendly websites, SaaS landing pages, and product-focused UI/UX design built to scale with modern stacks.",
+    href: "/services/web-development",
   },
   {
     title: "Business-to-Consumer",
-    blurb: "Competitor conversion points analysis included",
+    blurb: "Graphic design and branding that builds loyalty",
     more:
-      "Brand and site experiences that translate attention into repeat customers.",
-    href: "https://www.brandvm.com/industry/b2c-marketing",
+      "Creative visuals, graphic design, and UI that connect with consumers while web design ensures repeat visits.",
+    href: "/services/UIUX",
   },
   {
     title: "Health & Wellness",
-    blurb: "Creating user friendly websites for health care industry",
+    blurb: "User-friendly design for healthcare websites",
     more:
-      "HIPAA-aware UX and clear service paths for clinics, practices, and wellness brands.",
-    href: "https://www.brandvm.com/industry/health-wellness-marketing",
-  },
-  {
-    title: "Law",
-    blurb: "Portraying trust & confidence through marketing",
-    more:
-      "Reputation-forward sites, practice area pages, and intake flows that build confidence.",
-    href: "https://www.brandvm.com/industry/law-marketing",
+      "HIPAA-aware web design with clear service flows, engaging UI/UX, and PPC campaigns to attract and retain patients.",
+    href: "/services/UIUX",
   },
   {
     title: "Food & Beverage",
-    blurb: "Marketing material curated for food & beverage industry",
+    blurb: "Graphic design and UI that captures taste",
     more:
-      "Menu UX, locations, and visuals that capture taste and drive footfall or orders.",
-    href: "https://www.brandvm.com/industry/food-and-beverage-marketing",
+      "Menu-focused websites, packaging visuals, and creative graphics combined with intuitive UI/UX to engage customers.",
+    href: "/services/graphic-design",
   },
   {
     title: "Professional Services",
-    blurb: "Specializing in helping professional services win work",
+    blurb: "Web design and PPC ads that win new clients",
     more:
-      "From positioning to proposals: sites that convert complex B2B decisions into signed engagements.",
-    href: "https://www.brandvm.com/industry/professional-services-marketing",
+      "Professional, credibility-focused websites paired with Google PPC campaigns to generate and convert high-quality leads.",
+    href: "/services/google-ppc",
   },
   {
     title: "Entertainment & Media",
-    blurb: "#1 agency for Interactive design and development",
+    blurb: "Motion-rich UI/UX and creative design",
     more:
-      "Motion-rich, pop-culture aware sites with seamless performance and accessibility.",
-    href: "https://www.brandvm.com/industry/entertainment-marketing",
+      "Web development and graphic design infused with interactivity and media-rich visuals to match pop culture energy.",
+    href: "/services/UIUX",
   },
   {
     title: "StartUps",
-    blurb: "Startup Marketing Agency",
+    blurb: "Scalable web development for fast growth",
     more:
-      "Zero-to-one brand, narrative, and site—built to iterate fast across GTM stages.",
-    href: "https://www.brandvm.com/industry/startups-marketing",
+      "From MVPs to growth-stage products, startups get robust development, clean UI, and agile web design solutions.",
+    href: "/services/web-development",
   },
   {
     title: "Sports & Fitness",
-    blurb: "Web Design that adds excitement to the business",
+    blurb: "UI/UX that energizes and converts",
     more:
-      "Energetic visuals and booking funnels for gyms, camps, resorts, and franchises.",
-    href: "https://www.brandvm.com/industry/sports-fitness-marketing",
-  },
-  {
-    title: "Travel & Hospitality",
-    blurb: "Elevating the impact of marketing in educational institutions",
-    more:
-      "Location pages, offers, and review trust woven into a premium booking experience.",
-    href: "https://www.brandvm.com/industry/travel-hospitality-marketing",
+      "Dynamic websites with bold visuals, booking funnels, and UI/UX designed to excite and drive memberships.",
+    href: "/services/UIUX",
   },
 ];
+
 
 export default function IndustriesSection() {
   return (

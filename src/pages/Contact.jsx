@@ -6,19 +6,22 @@ import FooterIntro from '../components/FooterIntro.jsx'
 
 export default function Home() {
   return (
-    <div className="bg-white">
+    <div className="bg-slate-50">
       <Navbar />
 
-      <main className="container-x pb-2 bg-white !pt-0">
+      <main className="container-x pb-2 bg-slate-50 !pt-0">
       <Hero
-                    variant="work"
-                    minH="min-h-[70vh]"
-                    imgDesktop="Contact.jpg"
-                    imgMobile="Contact.jpg"
-                    overlayClass="bg-gradient-to-t from-slate-50 via-[#795448] to-transparent"
-                    titleLines={['Lets Get Started With Webify Tech']}
-                    subtitle="Contact us to discuss your inquiry, and we'll get back to you shortly."
-                />
+  variant="work"
+  minH="min-h-[70vh]"
+  imgDesktop="Contact.jpg"
+  imgMobile="Contact.jpg"
+  overlayClass="bg-gray-700"
+
+  titleLines={['Lets Get Started With Webify Tech']}
+  titleColor="text-white"        // <-- make title black
+  subtitle="Contact us to discuss your inquiry, and we'll get back to you shortly."
+/>
+
         
         <ContactPageForm />
         <FooterIntro />

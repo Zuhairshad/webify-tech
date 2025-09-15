@@ -8,7 +8,7 @@ import IndustriesSection from "../components/IndustriesSection";
 import Insights from "../components/Insights";
 import FooterIntro from "../components/FooterIntro";
 import TestimonialsSection from "../components/TestimonialsSection";
-import ContactFormFormspree from '../components/ContactSection';
+import ContactSection from '../components/ContactSection';
 import ScrollSection from "../components/ServiceSlidingDivs";
 const UIUX = () =>{
     
@@ -16,12 +16,9 @@ const UIUX = () =>{
     return (
         <>
         <HeroSection
-        backgroundImage="https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/6621882c7dddde983500377f_Section.avif"
-        subtitle="User Interface and user experience design agency"
-        title="UI/UX Design Agency"
-        description="Brand Vision is an award-winning UI/UX Agency that focuses on creating effective designs based on research and in-depth testing."
-        marqueeText="Award Winning UI/UX Agency"
-        showScrollIndicator={true} />
+        backgroundImage="/16.png"
+        marqueeText="USER INTERFACE & EXPERIENCE"
+         />
 
         <ScrollSection
       sections={[
@@ -81,7 +78,7 @@ const UIUX = () =>{
         <FaqsSection />
         <Insights />
         <TestimonialsSection />
-        <ContactFormFormspree />
+        <ContactSection />
         <FooterIntro />
 
         </>

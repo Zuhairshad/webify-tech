@@ -8,9 +8,10 @@ import IndustriesSection from "../components/IndustriesSection";
 import Insights from "../components/Insights";
 import FooterIntro from "../components/FooterIntro";
 import TestimonialsSection from "../components/TestimonialsSection";
-import ContactFormFormspree from '../components/ContactSection';
+import ContactSection from '../components/ContactSection';
 import HeroSection from '../components/serviceHero';
 import AwardSec from '../components/serviceAwardSec';
+import TechStack from '../components/TechStack';
 <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet"></link>
 
 const WebDesign = () => {
@@ -18,109 +19,184 @@ const WebDesign = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
      
-
-const services = [
+  const services = [
     {
-      id: 'website-design',
-      title: 'Website Design',
-      paragraph: 'As an award-winning web design agency, Brand Vision is dedicated to providing custom web design solutions that truly capture the unique character and style of our clients\' businesses.',
+      id: "website-design",
+      title: "Website Design",
+      paragraph:
+        "At Webify, we design purpose-built websites that reflect your brand and move visitors to action. Every layout, color, and component is chosen to support your goals.",
       richText: (
         <>
           <p className="text-sm md:text-base mb-4">
-            We understand that in today's digital landscape, it is more important than ever to have a website that stands out and effectively represents your brand. That's why our team of highly skilled and experienced <a href="https://www.brandvm.com/" className="underline text-blue-500 hover:text-blue-600 transition-colors">web designers</a> and developers is committed to creating visually stunning and user-friendly websites that not only look great, but also function effectively to help you achieve your business goals.
+            In today’s landscape, your site is your first impression. Our{" "}
+            <a
+              href="/services/web-development"
+              className="underline text-blue-500 hover:text-blue-600 transition-colors"
+            >
+              design
+            </a>{" "}
+            and engineering team works together to deliver interfaces that are
+            elegant, fast, and conversion-ready.
           </p>
           <p className="text-sm md:text-base mb-4">
-            We take a holistic approach to <a href="https://www.brandvm.com/" className="underline text-blue-500 hover:text-blue-600 transition-colors">web design</a>, considering both the aesthetic and psychological aspects of the user experience to ensure that our designs are both subjectively beautiful and objectively functional. If you are looking for an award-winning web design agency that can deliver custom solutions that truly set your business apart, look no further than Brand Vision.
+            We combine aesthetics with UX psychology—clear information hierarchy,
+            consistent components, and accessible patterns—so the site is both
+            memorable and easy to use. If you want a custom design that lifts your
+            brand and performance, Webify can help.
           </p>
         </>
       ),
-      tags: ['Custom-Designed', 'In-Depth Testing', 'Animations', 'Fully Optimized', 'Mockups'],
+      tags: [
+        "Custom Layouts",
+        "Accessibility-Focused",
+        "Performance-Tuned",
+        "Conversion-Ready",
+        "Design Systems",
+      ],
     },
     {
-      id: 'ui-ux',
-      title: 'UI/UX',
-      paragraph: 'Our UI/UX service creates immersive digital experiences that resonate with users. Our senior UI/UX team blends creativity and behavioral psychology to create award-winning websites and digital products.',
+      id: "ui-ux",
+      title: "UI/UX",
+      paragraph:
+        "We craft UI/UX that feels effortless—clear journeys, helpful micro-interactions, and layouts that guide users to the right outcome.",
       richText: (
         <>
           <p className="text-sm md:text-base mb-4">
-            Our UI/UX designs focus on creating digital experiences that guide users throughout our websites. We prioritize user understanding and emotional investment, ensuring interfaces are intuitive and user-friendly. Our designs blend clear visuals, information hierarchy, and unique brand voices to move customers toward the best solutions.
+            Our process starts with research, user flows, and wireframes to lock
+            in structure. From there we translate insights into interfaces that
+            are visually consistent and simple to navigate.
           </p>
           <p className="text-sm md:text-base mb-4">
-            We start by defining sitemaps and user flows, then create wireframes to finalize the information architecture and user touchpoints before designing visually stunning interfaces. Our goal is to attract and retain your ideal audience by putting their needs first.
+            We validate with iteration and lightweight testing, then ship designs
+            that balance brand expression with usability. See more about our{" "}
+            <a
+              href="/services/ui-ux"
+              className="underline text-blue-500 hover:text-blue-600 transition-colors"
+            >
+              UI/UX approach
+            </a>
+            .
           </p>
-          <a href="/ui-ux-agency" className="inline-flex items-center space-x-2 text-blue-500 hover:text-blue-600 transition-colors">
+          <a
+            href="/services/ui-ux"
+            className="inline-flex items-center space-x-2 text-blue-500 hover:text-blue-600 transition-colors"
+          >
             <span className="font-semibold underline">Learn more</span>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-3 w-3"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
               <path d="m8.25 4.5 7.5 7.5-7.5 7.5" />
             </svg>
           </a>
         </>
       ),
-      tags: ['Content Strategy', 'User-Centered', 'Accessibility', 'Iterative Testing', 'Data-Driven'],
+      tags: [
+        "User-Centered",
+        "Info Architecture",
+        "Wireframes",
+        "Prototyping",
+        "Iterative Testing",
+      ],
     },
     {
-      id: 'website-development',
-      title: 'Website Development',
-      paragraph: 'With a team of senior full-stack developers, we ensure your website resembles the designs perfectly. Our developers have a deep knowledge in various platforms to ensure your website is functional and responsive.',
+      id: "website-development",
+      title: "Website Development",
+      paragraph:
+        "Our full-stack team ships robust, scalable builds that match design intent pixel-for-pixel—and stay maintainable long after launch.",
       richText: (
         <>
           <p className="text-sm md:text-base mb-4">
-            We focus on key aspects like <a href="https://www.brandvm.com/" className="underline text-blue-500 hover:text-blue-600 transition-colors">SEO optimization</a>, WCAG 2.1 compliance, robust security, and user-friendly management.
+            We engineer with performance, security, and accessibility in mind.
+            SEO-friendly structure, WCAG-aligned patterns, and modern build tools
+            come standard in our{" "}
+            <a
+              href="/services/web-development"
+              className="underline text-blue-500 hover:text-blue-600 transition-colors"
+            >
+              development
+            </a>{" "}
+            process.
           </p>
           <p className="text-sm md:text-base mb-4">
-            Our approach starts with meticulous planning alongside the design team, selecting the right tools like Elementor Pro or Gutenberg and mapping out essential modules. We then progress methodically, ensuring quality at every stage with frequent checks for seamless functionality.
+            We plan modules with design early, choose the right stack (custom or
+            CMS), and ship in small, testable increments. Quality checks catch
+            regressions before release.
           </p>
           <p className="text-sm md:text-base mb-4">
-            As the site nears completion, our <a href="https://www.brandvm.com/" className="underline text-blue-500 hover:text-blue-600 transition-colors">SEO</a> experts conduct <a href="https://www.brandvm.com/" className="underline text-blue-500 hover:text-blue-600 transition-colors">audits</a>, while our team rigorously tests for security and accessibility. Every detail is thoroughly reviewed to ensure a synchronized rollout that aligns with both your technical and marketing strategies.
+            Near launch, we run technical reviews, performance passes, and
+            accessibility audits—so handoff is smooth and your marketing team can
+            move fast on day one.
           </p>
         </>
       ),
-      tags: ['Advanced Technical Expertise', 'Scalable & Secure Solutions', 'Post-Launch Support', 'Quality Assurance'],
+      tags: [
+        "Clean Architecture",
+        "Scalable & Secure",
+        "CMS-Ready",
+        "QA & Audits",
+        "Post-Launch Support",
+      ],
     },
   ];
-
+  
   const smallServices = [
     {
-      id: 'future-proof-strategies',
-      title: 'Future-Proof Strategies',
-      richText: 'Implementing forward-thinking approaches to ensure your website remains relevant and effective as technology evolves.',
+      id: "future-proof-strategies",
+      title: "Future-Proof Strategies",
+      richText:
+        "We design with tomorrow in mind—flexible systems, modular components, and a roadmap that can grow with your goals.",
     },
     {
-      id: 'senior-team',
-      title: 'Senior Team',
-      richText: 'Our websites are designed under the guidance of senior-level managers and designers for strategic, high-quality results.',
+      id: "senior-team",
+      title: "Senior Team",
+      richText:
+        "Every project is led by seasoned designers, engineers, and PMs to ensure velocity, clarity, and quality decisions.",
     },
     {
-      id: 'custom-designs',
-      title: 'Custom Designs',
-      richText: 'Tailored and unique web designs that reflect your brand identity, industry, and business goals.',
+      id: "custom-designs",
+      title: "Custom Designs",
+      richText:
+        "No templates. Your brand, audience, and objectives drive a unique design system built just for you.",
     },
     {
-      id: 'partnership',
-      title: 'Partnership',
-      richText: 'Experience true collaboration as we closely partner with you, leveraging your insights and industry expertise to set goals.',
+      id: "partnership",
+      title: "Partnership",
+      richText:
+        "We work with you, not just for you—co-creating goals, sharing progress often, and making decisions transparently.",
     },
     {
-      id: 'seo-focused',
-      title: 'SEO Focused',
-      richText: 'As the top SEO agency, our designs integrate Search Engine Optimization (SEO) best practices for improved visibility.',
+      id: "seo-focused",
+      title: "SEO-Ready",
+      richText:
+        "Information architecture, semantic markup, and performance best practices baked in to support organic visibility.",
     },
     {
-      id: 'built-in-cms',
-      title: 'Built-in CMS',
-      richText: 'We recommend and implement leading Content Management Systems (CMS) for intuitive, user-friendly website management.',
+      id: "built-in-cms",
+      title: "Built-In CMS",
+      richText:
+        "We implement intuitive CMS setups so your team can edit pages, posts, and media without developer overhead.",
     },
     {
-      id: 'industry-expertise',
-      title: 'Industry Expertise',
-      richText: 'With extensive industry experience, we tailor teams to your industry, ensuring our solutions align perfectly with your goals and audience.',
+      id: "industry-expertise",
+      title: "Industry Expertise",
+      richText:
+        "From B2B and tech to e-commerce and services, we tailor approach and team composition to your market realities.",
     },
     {
-      id: 'backed-by-strategy',
-      title: 'Backed by Strategy',
-      richText: 'Our websites are backed by thorough research and strategic thinking, ensuring they not only look great but also drive meaningful results.',
+      id: "backed-by-strategy",
+      title: "Backed by Strategy",
+      richText:
+        "Research, positioning, and clear KPIs guide design and development—so the site looks great and performs.",
     },
   ];
+  
 
   const ServiceCard = ({ service }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -215,26 +291,33 @@ const services = [
   const items = [
     {
       id: 1,
-      title: "Deep Industry Experience and",
-      highlight: "Client-Centric Approach",
-      description: "At Brand Vision, we strategically utilize our deep industry expertise to develop custom website solutions tailored to each client's unique needs. Rather than adopting a one-size-fits-all approach, we meticulously design every website to align precisely with your specific business objectives and challenges. This client-centric approach ensures that every project is not just executed with precision but is also a perfect fit for your business, setting you apart in your market.",
-      image: "https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/661d4d7cf9b52a7779e62f10_Flipp.avif"
+      title: "Extensive Industry Expertise and",
+      highlight: "Client-Focused Solutions",
+      description:
+        "At Webify Tech, we leverage deep industry knowledge to craft tailored website solutions that fit your unique goals. Every project is designed around your business objectives—not a one-size-fits-all model—ensuring precision, relevance, and measurable impact that helps your brand stand out in the market.",
+      image:
+        "https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/661d4d7cf9b52a7779e62f10_Flipp.avif",
     },
     {
       id: 2,
-      title: "Award-Winning, Senior-Level",
-      highlight: "Expertise at Every Step",
-      description: "We ensure that every project is overseen by senior professionals from start to finish. Brand Vision's team consists of award-winning experts in branding, web design, and user experience who bring a wealth of knowledge and creativity to each project. This level of expertise guarantees superior quality and innovative solutions that are designed not just to meet but exceed client expectations.",
-      image: "https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/661d4d7b765b6b416fa0eb20_Retina.avif"
+      title: "Award-Winning Talent and",
+      highlight: "Senior-Level Expertise",
+      description:
+        "From start to finish, your project is guided by senior professionals with proven, award-winning experience in branding, design, and user experience. At Webify Tech, our hands-on approach ensures innovative, high-quality solutions that consistently exceed client expectations.",
+      image:
+        "https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/661d4d7b765b6b416fa0eb20_Retina.avif",
     },
     {
       id: 3,
-      title: "Trend-Driven and",
-      highlight: "Customized Design",
-      description: "At Brand Vision, we stay ahead of the curve by closely following the latest design trends, ensuring our web solutions are not only modern but also visionary. Each project is a unique creation, meticulously tailored to reflect each client's distinct brand identity, industry, and business goals. Our custom and trend-responsive designs guarantee that your website not only stands out in your industry but also remains effective and relevant as market dynamics evolve.",
-      image: "https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/661d4d7bcf37920bc03e72f4_ReadyMode.avif"
-    }
+      title: "Modern, Visionary, and",
+      highlight: "Tailored Design",
+      description:
+        "We stay ahead of trends to deliver designs that are not only current but also forward-thinking. Each Webify Tech project is crafted to reflect your unique brand identity, industry, and goals—ensuring a custom design that is both timeless and adaptable to evolving market demands.",
+      image:
+        "https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/661d4d7bcf37920bc03e72f4_ReadyMode.avif",
+    },
   ];
+  
 
   const [openDropdowns, setOpenDropdowns] = useState({});
 
@@ -250,270 +333,104 @@ const services = [
       id: 1,
       stage: "Stage 1",
       title: "Discovery",
-      description: "In the web design Discovery phase, we deeply understand your business goals and audience needs. Our process involves tailored research, team meetings, and competitor analysis to identify your unique offerings. Using UX research methods, like interviews and surveys, we craft a user-centric web design for an enriched experience.",
+      description:
+        "We start by learning your goals, audience, and competitors. Through research and planning, we build the foundation for a website strategy that aligns with your brand.",
       glowColor: "blue",
       steps: [
         {
-          title: "Initial Discovery Meeting",
+          title: "Kick-off & Goals",
           items: [
-            "Discuss project goals & objectives.",
-            "Define industry, target audience, and stakeholders",
-            "Competitor analysis. Discuss website style & visual elements.",
-            "Discuss and review existing website analytics when applicable.",
-            "Review design examples and discuss the client's vision.",
-            "Provide navigation and page structure suggestions.",
-            "Develop or evaluate the sitemap for reorganization.",
-            "Develop a detailed project timeline.",
-            "Invite the client to - Asana for project planning - Figma for viewing the prototyping - Google Drive for sharing content"
-          ]
+            "Define goals, target audience, and stakeholders.",
+            "Discuss existing website analytics and performance.",
+            "Outline project vision and success metrics.",
+          ],
         },
         {
-          title: "Competitor Research",
+          title: "Research & Analysis ",
           items: [
-            "Further research and identify industry competitors.",
-            "Analyze competitor websites (structure, design, functionality, content).",
-            "Perform competitor analysis via analytics, web crawl, and digital branding review.",
-            "Assess competitor strengths and weaknesses (usability, content, reputation).",
-            "Identify differentiation and improvement opportunities.",
-            "Identify unique features/content for client website differentiation.",
-            "Fill gaps in competitors' online presence."
-          ]
+            "Competitor and market research.",
+            "Collect brand assets and audience insights.",
+          ],
         },
         {
-          title: "Content Gathering",
+          title: "Planning & Roadmap ",
           items: [
-            "Request brand materials (e.g., logos, style guides).",
-            "Obtain client content (e.g., text, images, videos).",
-            "Identify content needs and/or gaps and provide recommendations.",
-            "Develop content requirements (text, images, multimedia).",
-            "Address legal/regulatory requirements (eg., webpages, blog posts, videos).",
-            "Identify third-party content sources and ensure proper licensing/attribution."
-          ]
+            "Create sitemap and navigation structure.",
+            "Build detailed project timeline.",
+            "Set up tools (Asana, Figma, Drive).",
+          ],
         },
-        {
-          title: "Information Architecture",
-          items: [
-            "Define navigation structure and layout of pages.",
-            "Identify main content categories and subcategories.",
-            "Revise and finalize the high-level sitemap."
-          ]
-        },
-        {
-          title: "UX Research",
-          items: [
-            "Define user personas based on the target audience.",
-            "Perform usability testing on existing or similar websites.",
-            "Analyze user behaviours, preferences, and pain points.",
-            "Analyze competitors' websites for user experience best practices and areas for improvement.",
-            "Identify key User Experience Goals for the new website."
-          ]
-        },
-        {
-          title: "Defining KPIs",
-          items: [
-            "Identify measurable goals and KPIs for website.",
-            "Determine metrics and tools to track and report success.",
-            "Identify potential roadblocks/challenges for achieving KPIs."
-          ]
-        }
-      ]
+      ],
     },
     {
       id: 2,
       stage: "Stage 2",
       title: "Design",
-      description: "In the design phase, we'll bring your website's vision to life. Leveraging Discovery insights, our team tailors designs to echo your brand and web design specific audience needs. Emphasizing visually captivating, user-friendly, responsive layouts across all devices, we present design mockups for your input, ensuring refinement until it perfectly matches your web design vision.",
+      description:
+        "Using insights from Discovery, we craft layouts and interfaces that are visually appealing, responsive, and user-friendly.",
       glowColor: "green",
       steps: [
         {
-          title: "Style Guide Development",
+          title: "Concept & Wireframes ",
           items: [
-            "Define colour palette, typography, and visual hierarchy.",
-            "Establish UI component style.",
-            "Document design guidelines for future consistency.",
-            "Determine link styles (underline, colour, hover effect).",
-            "Establish additional design elements.",
-            "Create a mood board for feedback from the client."
-          ]
+            "Mood boards and style guides.",
+            "Low-fidelity wireframes for structure.",
+          ],
         },
         {
-          title: "Wireframe Creation",
+          title: "Visual Mockups ",
           items: [
-            "Create a homepage wireframe and present it to the client.",
-            "Wireframe unique page layouts to maximize efficiency.",
-            "Create the wireframe for all pages based on the homepage approved wireframe.",
-            "Identify important elements such as navigation and call-to-action buttons.",
-            "Ensure the wireframe accommodates different screen sizes."
-          ]
+            "High-fidelity mockups across devices.",
+            "Refinement based on client feedback.",
+          ],
         },
-        {
-          title: "Mockup Design",
-          items: [
-            "Create a high-fidelity mockup from the approved wireframe for the home page and review it with the client.",
-            "Create a high-fidelity mockup for the remaining pages based on the approved home page design.",
-            "Apply style guide and mood board elements.",
-            "Ensure the design is responsive for different devices.",
-            "Review the complete mockup with the client and gather feedback."
-          ]
-        },
-        {
-          title: "Design Refinement",
-          items: [
-            "Revise the mockup based on client feedback.",
-            "Revise the remaining pages based on the home page approved design and client feedback."
-          ]
-        },
-        {
-          title: "Responsive Design",
-          items: [
-            "Adapt approved designs for mobile and tablet.",
-            "Ensure usability and consistency across different screen sizes.",
-            "Determine breakpoints for layout changes on different device sizes.",
-            "Optimize site load times on mobile and tablet devices.(In terms of design decisions)",
-            "Ensure pop-ups/overlays work properly on various devices.",
-            "Review responsive designs with clients and gather feedback.",
-            "Revise mobile and tablet designs as necessary."
-          ]
-        },
-        {
-          title: "Preparing for Development",
-          items: [
-            "Prepare design files for the development phase.",
-            "Export assets (e.g., images, icons, fonts) in appropriate formats.",
-            "Create a design specification document detailing layout, spacing, and measurements.",
-            "Collaborate with the development team to ensure a smooth transition.",
-            "Review the design with developers and address any technical concerns.",
-            "Establish a timeline and milestones for the development phase."
-          ]
-        }
-      ]
+      ],
     },
     {
       id: 3,
       stage: "Stage 3",
       title: "Development",
-      description: "In the Development phase of web design, we transform approved designs into a functional website, using advanced technology and coding standards to ensure speed, security, and accessibility. We conduct extensive testing for optimal performance on various devices and browsers, and integrate tools like CMS and e-commerce platforms for enhanced functionality.",
+      description:
+        "We turn approved designs into a fully functional website, ensuring performance, security, and scalability.",
       glowColor: "red",
       steps: [
         {
-          title: "Platform Setup",
+          title: "Core Development ",
           items: [
-            "Determine the website's technical requirements including its functionality, scalability, and security needs.",
-            "Set up and configure the selected platform.",
-            "Install necessary themes, plugins, or extensions",
-            "Determine the necessary hardware and software requirements.",
-            "Develop a testing strategy including unit testing, integration testing, and user acceptance testing."
-          ]
+            "Front-end and back-end coding.",
+            "CMS setup and content integration.",
+          ],
         },
         {
-          title: "Frontend Development",
+          title: "Features & Testing",
           items: [
-            "Convert designs to the best-suited code HTML, Java, CSS, React (as applicable).",
-            "Ensure pixel-perfect implementation and adhere to design specs.",
-            "Implement animations and interactions.",
-            "Optimize code for performance, accessibility, and cross-browser compatibility.",
-            "Integrate payment and shipment APIs, including multiple currencies if needed.",
-            "Plan for SEO optimization and accessibility to meet WCAG standards if needed."
-          ]
+            "Add e-commerce, forms, or integrations.",
+            "Performance, security, and accessibility tests.",
+          ],
         },
-        {
-          title: "Content Management System (CMS)",
-          items: [
-            "Integrate frontend templates with CMS.",
-            "Set up content structures and custom fields.",
-            "Train clients to use CMS for content management.",
-            "Integrate with third-party email marketing or CRM platform."
-          ]
-        },
-        {
-          title: "Application Integration",
-          items: [
-            "Integrate necessary third-party tools (e.g., e-commerce, analytics, email marketing).",
-            "Configure and test integrations for seamless functionality."
-          ]
-        },
-        {
-          title: "Quality Assurance & Testing",
-          items: [
-            "Perform functional testing to ensure all features work as intended.",
-            "Test website performance, load times, and optimization (e.g. Google PageSpeed Insights).",
-            "Conduct accessibility testing to ensure compliance with relevant standards if needed.",
-            "Create bug reports and work with the development team to resolve issues before launch."
-          ]
-        },
-        {
-          title: "Client Review",
-          items: [
-            "Present the developed website to the client for review.",
-            "Address concerns or issues raised by the client.",
-            "Obtain client approval for the final developed website."
-          ]
-        }
-      ]
+      ],
     },
     {
       id: 4,
       stage: "Stage 4",
-      title: "Finalization",
-      description: "In the Finalization phase of web design, we perfect the website with QA and user testing to eliminate errors. After ensuring top quality, we optimize for search engines, arrange hosting, enhance security, and provide documentation. Post-launch, we offer continuous support and maintenance for a dynamic digital presence.",
+      title: "Launch & Support",
+      description:
+        "After QA and optimization, we launch your site and provide training, monitoring, and ongoing support.",
       glowColor: "blue",
       steps: [
         {
-          title: "Cross-Browser Testing",
+          title: "Go-Live & Support ",
           items: [
-            "Test the website on various browsers after launch (e.g., Chrome, Firefox, Safari).",
-            "Test the website on different devices after launch (e.g., smartphones, tablets) and screen sizes.",
-            "Ensure consistent appearance and functionality across different browsers."
-          ]
+            "Cross-browser and device testing.",
+            "SEO optimization and analytics setup.",
+            "Launch and monitoring.",
+            "Training and post-launch support.",
+          ],
         },
-        {
-          title: "Performance Optimization",
-          items: [
-            "Optimize website assets to reduce load times.",
-            "Test website performance with tools like Google PageSpeed Insights after launch.",
-            "Identify and prioritize areas needing performance improvement and implement optimization techniques.",
-            "Implement caching techniques to reduce server load and improve load times for repeat visitors."
-          ]
-        },
-        {
-          title: "SEO Optimization",
-          items: [
-            "Optimize on-page SEO elements like meta tags and heading tags.",
-            "Create and submit an XML sitemap to search engines.",
-            "Perform technical SEO tasks, including minifying scripts and configuring structured data.",
-            "Optimize website content with targeted keywords if required.",
-            "Ensure clear website structure for search engine understanding.",
-            "Set up Google Analytics and Search Console for website monitoring if required."
-          ]
-        },
-        {
-          title: "Final Client Review and Approval",
-          items: [
-            "Present the fully tested and optimized website to the client for review.",
-            "Address any remaining concerns or issues raised by the client.",
-            "Obtain client approval for launch."
-          ]
-        },
-        {
-          title: "Website Launch",
-          items: [
-            "Schedule and execute the website launch.",
-            "Monitor the website closely for any issues during the initial launch period.",
-            "Check that all SEO elements have been correctly implemented, including meta tags, titles, descriptions, and keywords."
-          ]
-        },
-        {
-          title: "Post-Launch Support",
-          items: [
-            "Provide training and support to website administrators to ensure they are equipped to manage the website.",
-            "Provide ongoing support to address any issues that arise after launch.",
-            "Monitor website performance, analytics, and user feedback.",
-            "Implement updates and improvements based on feedback and data analysis."
-          ]
-        }
-      ]
-    }
+      ],
+    },
   ];
+  
   const getGlowClasses = (color) => {
     switch (color) {
       case 'green':
@@ -527,12 +444,8 @@ const services = [
     return (
         <>
         <HeroSection
-        backgroundImage="https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/66a921b2523b4292beddc3e5_Section.jpg"
-        subtitle="Brand Vision | Web Design Services"
-        title="Award-Winning Web Design Agency"
-        description="Brand Vision is a leading media and web design agency with extensive experience in crafting custom-designed and expertly developed websites. Our creative team takes pride in producing visually striking, user-friendly platforms that excel in both user experience and SEO."
-        marqueeText="Award Winning Website Design & Development Agency"
-        showScrollIndicator={true}
+        backgroundImage="/17.png"
+        marqueeText="WEBSITE DESIGN & DEVELOPMENT"
       />
 
 
@@ -540,153 +453,85 @@ const services = [
       topText="Top Web Design Agency"
       heading="We create beautiful websites"
       subHeading="that drive business growth."
-      description="Brand Vision is a leading media and web design agency with
+      description="Webfiy Tech is a leading media and web design agency with
               extensive experience in crafting custom-designed and expertly
               developed websites. Our creative team takes pride in producing
               visually striking, user-friendly platforms that excel in both user
               experience and SEO." />
 
-
-        
-    <section className="w-full bg-white border-b border-[#070d130f] py-2 px-2 ">
-      <div className="mx-5 flex flex-col md:flex-row justify-between items-center ">
-        {/* Caption */}
-        <div className="text-gray-600 text-sm  ">
-          Made by industry standard tool
-        </div>
-
-        {/* Logos */}
-        <div className="flex  gap-8">
-          <a
-            href="https://www.brandvm.com/sub-services/webflow-web-design"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-105 transition-transform"
-          >
-            <img
-              src="https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/661d40d27be4802174c6b87e_Webflow%20Logo.svg"
-              alt="Webflow Logo"
-              className="h-6 md:h-8"
-            />
-          </a>
-          <a
-            href="https://www.brandvm.com/sub-services/wordpress-web-design"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-105 transition-transform"
-          >
-            <img
-              src="https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/661d40d215ce2ccc82ef7d4b_WordPress%20Logo.svg"
-              alt="WordPress Logo"
-              className="h-6 md:h-8"
-            />
-          </a>
-          <a
-            href="https://www.brandvm.com/sub-services/wix-web-design"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:scale-105 transition-transform"
-          >
-            <img
-              src="https://cdn.prod.website-files.com/630bc5625ada9a1e2dbb10a6/661d40d24763da1c10c4337a_Wix%20Logo.svg"
-              alt="Wix Logo"
-              className="h-6 md:h-8"
-            />
-          </a>
-        </div>
-
-        {/* Button */}
-        <a
-          href="#Featured-Projects"
-          className="inline-flex items-center px-2 py-2 border border-gray-300 rounded-full text-gray-700 text-xs font-semibold hover:bg-gray-100 transition"
-        >
-          SEE FEATURES
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="ml-2 w-4 h-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            strokeWidth={2.5}
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-          </svg>
-        </a>
-      </div>
-    </section>
     <section className="w-full px-8 md:px-20 py-24 flex flex-col justify-center items-center relative overflow-hidden bg-gray-50">
   {/* Main Content Container with Gradient Background */}
   <div className="max-w-[95em] w-full">
-    <div className="relative rounded-3xl overflow-hidden bg-gradient-to-b from-black via-black to-blue-600 p-12 md:p-16">
+    <div className="relative rounded-3xl overflow-hidden bg-gradient-to-b from-black via-black to-orange-500 p-12 md:p-16">
       {/* Gradient Overlay for extra depth */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/20 to-transparent"></div>
 
-      {/* Content Grid */}
-      <div className="relative z-10 flex flex-col lg:flex-row gap-12 text-white">
-        {/* Left Content */}
-        <div className="flex-1">
-          <h5 className="text-4xl md:text-5xl font-bold leading-tight mb-8">
-            Custom websites,{" "}
-            <span className="block">backed by strategy</span>
-          </h5>
+     {/* Content Grid */}
+<div className="relative z-10 flex flex-col lg:flex-row gap-12 text-white">
+  {/* Left Content */}
+  <div className="flex-1">
+    <h5 className="text-4xl md:text-5xl font-bold leading-tight mb-8">
+      Tailored websites,{" "}
+      <span className="block">driven by strategy</span>
+    </h5>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-gray-900 font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105"
-            >
-              Request a Proposal
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 5l7 7-7 7" />
-              </svg>
-            </a>
+    {/* CTA Buttons */}
+    <div className="flex flex-wrap gap-4">
+      <a
+        href="/contact"
+        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-gray-900 font-semibold hover:bg-gray-100 transition-all duration-300 hover:scale-105"
+      >
+        Request a Proposal
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-4 h-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 5l7 7-7 7" />
+        </svg>
+      </a>
 
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-transparent border border-white/30 text-white font-semibold hover:bg-white/10 transition-all duration-300 hover:scale-105"
-            >
-              Contact Us
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        </div>
+      <a
+        href="/contact"
+        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-transparent border border-white/30 text-white font-semibold hover:bg-white/10 transition-all duration-300 hover:scale-105"
+      >
+        Contact Us
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-4 h-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M12 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
 
-        {/* Right Content */}
-        <div className="flex-1 text-gray-200 space-y-6 text-sm md:text-base leading-relaxed">
-          <p>
-            A strong online presence is essential to ensure the success of any business as it
-            impacts how your audience perceives your brand. In order to maximize growth, a
-            business needs to clearly differentiate itself from the vast sea of competition. At
-            Brand Vision, we specialize in designing websites that are not only visually stunning
-            but also user-friendly, ensuring your brand makes an unforgettable impression.
-          </p>
-          <p>
-            Our team of award-winning web designers and expert web developers is passionate about
-            modern web design and deeply understands the psychology of user experience. This
-            combination results in a perfect blend of aesthetic appeal and functional excellence,
-            all designed to help you achieve your business objectives through your website.
-          </p>
-        </div>
-      </div>
+  {/* Right Content */}
+  <div className="flex-1 text-gray-200 space-y-6 text-sm md:text-base leading-relaxed">
+    <p>
+      Your website is often the first interaction customers have with your brand—so it
+      needs to be more than just visually appealing. At <strong>Webify Tech</strong>, we
+      craft sites that blend stunning design with seamless usability, helping your business
+      stand out in a crowded digital landscape.
+    </p>
+    <p>
+      Our team combines creative design with technical expertise, grounded in user
+      psychology and conversion strategy. The result is a website that not only looks
+      impressive but also delivers measurable outcomes—engaging audiences, building trust,
+      and accelerating growth.
+    </p>
+  </div>
+</div>
+
 
       {/* Bottom Section - Partners */}
       <div className="relative z-10 mt-16 pt-12 border-t border-white/20">
@@ -779,7 +624,7 @@ const services = [
                 Our Services
               </h1>
               <p className="mt-4 text-gray-600 max-w-xl text-lg">
-                Our team integrates strategy, <a href="https://www.brandvm.com/" className="text-blue-500 hover:text-blue-600 underline transition-colors">branding</a>, UX design, and technology to create award-winning websites.
+                Our team integrates strategy, <a href="/" className="text-blue-500 hover:text-blue-600 underline transition-colors">branding</a>, UX design, and technology to create award-winning websites.
               </p>
             </div>
             <div className="flex items-center space-x-4 mt-8 md:mt-0">
@@ -821,7 +666,7 @@ const services = [
       </section>
     </div>
   
-
+    <TechStack/>
     <FeaturedWork />
 
     <section className="w-full flex flex-col justify-center items-center px-8 md:px-20 py-48 relative overflow-hidden text-[#f0f5fa] bg-[#0c1013]">
@@ -837,7 +682,7 @@ const services = [
           
           {/* Main Title */}
           <div className="lg:col-span-2">
-            <h2 className="text-4xl md:text-6xl font-bold leading-tight">
+            <h2 className="text-3xl md:text-6xl font-bold leading-tight">
               A Closer Look At Our{" "}
               <span>Web Design Methodology</span>
             </h2>
@@ -927,12 +772,13 @@ const services = [
         </div>
       </div>
     </section>
+    
     <RecentClients />
     <IndustriesSection />
     <FaqsSection />
     <Insights />
     <TestimonialsSection />
-    <ContactFormFormspree />
+    <ContactSection />
     <FooterIntro />
     </>
     );

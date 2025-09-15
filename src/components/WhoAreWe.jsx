@@ -159,7 +159,7 @@ export default function WhoAreWe() {
         <div className="lg:col-span-4 pt-12">
           <div className="divide-y divide-white/10">
             {items.map((it) => (
-              <div key={it.title} className="py-10">
+              <div key={it.title} className="py-10 text-2xl">
                 <h3 className="text-[20px] md:text-[22px] font-semibold text-white/90">
                   {it.title}
                 </h3>

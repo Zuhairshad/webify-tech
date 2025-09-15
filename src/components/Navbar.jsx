@@ -1,9 +1,8 @@
 // src/components/Navbar.jsx
 import { useEffect, useState, useMemo, useRef } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
-/** tiny helper to join classes safely */
 function cx(...args) {
   return args.filter(Boolean).join(" ");
 }
@@ -12,14 +11,14 @@ export default function Navbar() {
   const { pathname } = useLocation();
 
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null); // 'services' | null
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // heights (Tailwind h-28 = 112px, h-20 = 80px)
   const H_EXPANDED = 112;
   const H_COMPACT = 80;
 
-  // Lock body scroll when mobile menu is open
+  // prevent background scroll when mobile menu is open
   useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -28,7 +27,7 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  // Set CSS var --nav-h & track scroll state
+  // compact nav on scroll
   useEffect(() => {
     const apply = () => {
       document.documentElement.style.setProperty(
@@ -37,7 +36,6 @@ export default function Navbar() {
       );
     };
     apply();
-
     const onScroll = () => {
       setScrolled(window.scrollY > 10);
       apply();
@@ -46,13 +44,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close menus on route change
+  // close menus + scroll to top on route change
   useEffect(() => {
     setMobileOpen(false);
     setOpenDropdown(null);
+    setMobileServicesOpen(false);
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [pathname]);
 
-  // Close dropdown on outside click
+  // close dropdown on outside click
   const dropdownRef = useRef(null);
   useEffect(() => {
     if (!openDropdown) return;
@@ -69,11 +69,12 @@ export default function Navbar() {
     () =>
       cx(
         "text-[15px] sm:text-sm transition-colors",
-        scrolled ? "text-slate-700 hover:text-slate-900" : "text-slate-200 hover:text-white"
+        scrolled
+          ? "text-slate-700 hover:text-slate-900"
+          : "text-slate-200 hover:text-white"
       ),
     [scrolled]
   );
-
   const activeClasses = scrolled
     ? "text-slate-900 font-medium"
     : "text-white font-medium";
@@ -83,6 +84,18 @@ export default function Navbar() {
     { to: "/about", label: "About Us" },
     { to: "/work", label: "Work" },
     { to: "/contact", label: "Contact" },
+  ];
+
+  const serviceLinks = [
+    { label: "Web Design & Development", to: "/services/web-development" },
+    { label: "SEO", to: "/services/SEO" },
+    { label: "App Development", to: "/services/app-development" },
+    { label: "Digital Marketing", to: "/services/digital-marketing" },
+    { label: "UI/UX", to: "/services/UIUX" },
+    { label: "Google PPC Ads", to: "/services/google-ppc-ads" },
+    { label: "Virtual Assistance", to: "/services/virtual-assistance" },
+    { label: "Video Editing", to: "/services/video-editing" },
+    { label: "Graphic Designing", to: "/services/graphic-designing" },
   ];
 
   return (
@@ -97,7 +110,7 @@ export default function Navbar() {
           : "bg-transparent text-white"
       )}
     >
-      {/* Top bar (height animates) */}
+      {/* Top bar */}
       <div
         className={cx(
           "mx-auto w-full max-w-7xl flex items-center justify-between px-3 sm:px-4 md:px-[10px] transition-all duration-300",
@@ -105,10 +118,14 @@ export default function Navbar() {
         )}
       >
         {/* Brand */}
-        <Link to="/" className="flex items-center gap-1 !pl-0 min-w-0" aria-label="Webify Tech — Home">
+        <Link
+          to="/"
+          className="flex items-center gap-1 !pl-0 min-w-0"
+          aria-label="Webify Tech — Home"
+        >
           <span
             className={cx(
-              "font-['Dancing_Script'] tracking-tight block truncate",
+              "font-['Poppins'] tracking-tight block truncate",
               scrolled
                 ? "text-[clamp(22px,4vw,30px)] text-slate-900"
                 : "text-[clamp(26px,5vw,36px)] text-white"
@@ -120,12 +137,13 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
-          {/* Home */}
           {navItems.slice(0, 1).map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
-              className={({ isActive }) => cx(linkBase, isActive && activeClasses)}
+              className={({ isActive }) =>
+                cx(linkBase, isActive && activeClasses)
+              }
               end
             >
               {item.label}
@@ -136,7 +154,9 @@ export default function Navbar() {
           <div className="relative">
             <button
               type="button"
-              onClick={() => setOpenDropdown(openDropdown === "services" ? null : "services")}
+              onClick={() =>
+                setOpenDropdown(openDropdown === "services" ? null : "services")
+              }
               aria-expanded={openDropdown === "services"}
               aria-controls="services-menu"
               className={cx(linkBase, "inline-flex items-center gap-1")}
@@ -146,7 +166,10 @@ export default function Navbar() {
                 width="16"
                 height="16"
                 viewBox="0 0 24 24"
-                className={cx("transition", openDropdown === "services" && "rotate-180")}
+                className={cx(
+                  "transition",
+                  openDropdown === "services" && "rotate-180"
+                )}
               >
                 <path
                   d="m19.5 8.25-7.5 7.5-7.5-7.5"
@@ -158,67 +181,47 @@ export default function Navbar() {
               </svg>
             </button>
 
-            {/* Dropdown panel */}
-<div
-  id="services-menu"
-  ref={dropdownRef}
-  className={cx(
-    "absolute left-0 top-full mt-2 w-48 rounded-md border transition duration-200",
-    scrolled ? "bg-white border-slate-200 shadow-lg" : "bg-[#151515] border-white/10 shadow-soft",
-    openDropdown === "services" ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-  )}
-  onMouseLeave={() => setOpenDropdown(null)}
->
-  <ul className="py-2">
-    {[
-      { label: "App Dev", to: "/services/app-development", external: false },
-      { label: "Web Dev", to: "/services/web-development", external: false },
-      { label: "SEO", to: "https://seo.brandvm.com/", external: true },
-      { label: "digital marketing", to: "/services/digital-marketing", external: false },
-      { label: "UIUX", to: "/services/UIUX", external: false },
-    ].map(({ label, to, external }) => (
-      <li key={label}>
-        {external ? (
-          <a
-            href={to}
-            target="_blank"
-            rel="noreferrer"
-            className={cx(
-              "block px-4 py-2 text-sm transition-colors",
-              scrolled
-                ? "text-slate-700 hover:text-slate-900 hover:bg-slate-100"
-                : "text-slate-200 hover:text-white hover:bg-white/5"
-            )}
-          >
-            {label}
-          </a>
-        ) : (
-          <Link
-            to={to}
-            className={cx(
-              "block px-4 py-2 text-sm transition-colors",
-              scrolled
-                ? "text-slate-700 hover:text-slate-900 hover:bg-slate-100"
-                : "text-slate-200 hover:text-white hover:bg-white/5"
-            )}
-          >
-            {label}
-          </Link>
-        )}
-      </li>
-    ))}
-  </ul>
-</div>
+            <div
+              id="services-menu"
+              ref={dropdownRef}
+              className={cx(
+                "absolute left-0 top-full mt-2 w-56 rounded-md border transition duration-200",
+                scrolled
+                  ? "bg-white border-slate-200 shadow-lg"
+                  : "bg-[#151515] border-white/10 shadow-soft",
+                openDropdown === "services"
+                  ? "opacity-100 pointer-events-auto"
+                  : "opacity-0 pointer-events-none"
+              )}
+              onMouseLeave={() => setOpenDropdown(null)}
+            >
+              <ul className="py-2">
+                {serviceLinks.map(({ label, to }) => (
+                  <li key={label}>
+                    <Link
+                      to={to}
+                      className={cx(
+                        "block px-4 py-2 text-sm transition-colors",
+                        scrolled
+                          ? "text-slate-700 hover:text-slate-900 hover:bg-slate-100"
+                          : "text-slate-200 hover:text-white hover:bg-white/5"
+                      )}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
 
-          </div> 
-          {/* ✅ closed relative wrapper */}
-
-          {/* Remaining top-level links */}
           {navItems.slice(1).map((item) => (
             <NavLink
               key={item.to}
               to={item.to}
-              className={({ isActive }) => cx(linkBase, isActive && activeClasses)}
+              className={({ isActive }) =>
+                cx(linkBase, isActive && activeClasses)
+              }
             >
               {item.label}
             </NavLink>
@@ -300,26 +303,91 @@ export default function Navbar() {
         className={cx(
           "lg:hidden transition-[max-height,opacity] duration-300 overflow-hidden",
           mobileOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0",
-          scrolled ? "border-t border-slate-200 bg-white" : "border-t border-white/10 bg-[#0B1220]"
+          scrolled
+            ? "border-t border-slate-200 bg-white"
+            : "border-t border-white/10 bg-[#0B1220]"
         )}
       >
-        <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-[10px] py-4 space-y-1">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.to}
-              to={item.to}
-              className={({ isActive }) =>
-                cx(
-                  "block py-2 text-[15px] sm:text-sm transition-colors",
-                  scrolled ? "text-slate-700 hover:text-slate-900" : "text-slate-200 hover:text-white",
-                  isActive && (scrolled ? "text-slate-900 font-medium" : "text-white font-medium")
-                )
-              }
-              end={item.to === "/"}
+        <div className="mx-auto w-full max-w-7xl px-3 sm:px-4 md:px-[10px] py-4">
+          {/* Top-level links */}
+          <div className="space-y-1">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.to}
+                to={item.to}
+                className={({ isActive }) =>
+                  cx(
+                    "block py-2 text-[15px] sm:text-sm transition-colors",
+                    scrolled
+                      ? "text-slate-700 hover:text-slate-900"
+                      : "text-slate-200 hover:text-white",
+                    isActive &&
+                      (scrolled
+                        ? "text-slate-900 font-medium"
+                        : "text-white font-medium")
+                  )
+                }
+                end={item.to === "/"}
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </div>
+
+          {/* Services accordion (mobile) */}
+          <div className="mt-2 border-t pt-2" />
+          <button
+            type="button"
+            onClick={() => setMobileServicesOpen((v) => !v)}
+            aria-expanded={mobileServicesOpen}
+            className={cx(
+              "w-full flex items-center justify-between py-2 text-[15px] sm:text-sm",
+              scrolled
+                ? "text-slate-700 hover:text-slate-900"
+                : "text-slate-200 hover:text-white"
+            )}
+          >
+            <span>Services</span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              className={cx("transition", mobileServicesOpen && "rotate-180")}
             >
-              {item.label}
-            </NavLink>
-          ))}
+              <path
+                d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+
+          <div
+            className={cx(
+              "grid transition-[grid-template-rows] duration-300",
+              mobileServicesOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+            )}
+          >
+            <ul className="overflow-hidden">
+              {serviceLinks.map(({ label, to }) => (
+                <li key={label}>
+                  <Link
+                    to={to}
+                    className={cx(
+                      "block px-1.5 py-2 text-sm",
+                      scrolled
+                        ? "text-slate-600 hover:text-slate-900"
+                        : "text-slate-300 hover:text-white"
+                    )}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </motion.header>

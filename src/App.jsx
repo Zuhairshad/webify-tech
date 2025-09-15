@@ -6,10 +6,15 @@ import Work from "./pages/Work.jsx"
 import CaseStudy from "./pages/CaseStudy.jsx";
 import Contact from "./pages/Contact.jsx"
 import RequestProposal from "./pages/RequestProposal.jsx";
-import WebDesign from "./pages/websiteDesign.jsx";
+import WebDesign from "./pages/WebsiteDesign.jsx";
 import Navbar from "./components/Navbar.jsx";
 import UIUX from "./pages/UIUX.jsx";
-import DigitalMarketing from "./pages/digitalMarketing.jsx";
+import DigitalMarketing from "./pages/DigitalMarketing.jsx";
+import SEO from "./pages/SEO.jsx"
+import AppDevelopment from "./pages/AppDevelopment.jsx";
+import GooglePpcAds from "./pages/GooglePpcAds.jsx";
+import VirtualAssistance from "./pages/VirtualAssistance.jsx";
+import VideoEditing from "./pages/VideoEditing.jsx";
 export default function App() {
   return (<>
     <Navbar />
@@ -21,9 +26,14 @@ export default function App() {
         <Route path="/contact" element={<Contact/>} />
         <Route path="/proposalrequest" element={<RequestProposal/>} />
         <Route path="/services/web-development" element={<WebDesign/>} />
-        <Route path="/services/SEO" />
+        <Route path="/services/SEO" element={<SEO/>}/>
         <Route path="/services/UIUX" element={<UIUX />} />
         <Route path="/services/digital-marketing" element={<DigitalMarketing />} />
+        <Route path="/services/google-ppc-ads" element={<GooglePpcAds/>} />
+        <Route path="/services/virtual-assistance" element={<VirtualAssistance />} />
+        <Route path="/services/video-editing" element={<VideoEditing />} />
+        <Route path="/services/app-development" element={<AppDevelopment />} />
+
 
 
       {/* add more routes here */}
