@@ -6,7 +6,7 @@ import Work from "./pages/Work.jsx"
 import CaseStudy from "./pages/CaseStudy.jsx";
 import Contact from "./pages/Contact.jsx"
 import RequestProposal from "./pages/RequestProposal.jsx";
-import WebsiteDesign from "./pages/websiteDesign.jsx";
+import WebsiteDesign from "./pages/WebsiteDesign.jsx";
 import Navbar from "./components/Navbar.jsx";
 import UIUX from "./pages/UIUX.jsx";
 import DigitalMarketing from "./pages/DigitalMarketing.jsx";
